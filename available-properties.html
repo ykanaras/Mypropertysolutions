@@ -3,305 +3,89 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Available Properties | My Property Solutions</title>
-  <meta name="description" content="Browse available rental properties with multiple photos and property details." />
+  <title>Available Properties | MY Property Solutions</title>
+  <meta name="description" content="Browse available rental properties." />
   <style>
     :root{
-      --bg:#f7f8fa;
-      --white:#ffffff;
-      --text:#16202a;
-      --muted:#5f6b76;
-      --primary:#153d6f;
-      --primary-dark:#102f55;
-      --accent:#d8a85f;
-      --border:#e5e7eb;
-      --shadow:0 10px 30px rgba(0,0,0,.08);
-      --radius:18px;
-      --max-width:1200px;
+      --bg:#f5f7fb;--white:#ffffff;--text:#1f2937;--muted:#6b7280;--primary:#0f5ea8;--primary-dark:#0b4a86;--border:#e5e7eb;--shadow:0 10px 30px rgba(15,23,42,.08);--shadow-soft:0 4px 18px rgba(15,23,42,.06);--radius:18px;--max-width:1240px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
-    .container{width:min(92%,var(--max-width));margin:0 auto}
-    .section{padding:80px 0}
-    .btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:700;transition:.25s ease;border:none;cursor:pointer}
+    .container{width:min(94%,var(--max-width));margin:0 auto}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:12px;font-weight:700;transition:.2s ease;border:none;cursor:pointer}
     .btn-primary{background:var(--primary);color:#fff}
-    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
-    .btn-secondary{background:transparent;border:2px solid var(--primary);color:var(--primary)}
-    .btn-secondary:hover{background:var(--primary);color:#fff}
-
-    header{
-      background:#fff;
-      border-bottom:1px solid var(--border);
-      position:sticky;
-      top:0;
-      z-index:100;
-    }
-
-    .nav{
-      min-height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .logo{
-      font-size:1.3rem;
-      font-weight:800;
-      color:var(--primary);
-    }
-
-    .logo span{color:var(--accent)}
-
-    .nav-links{
-      list-style:none;
-      display:flex;
-      gap:24px;
-      align-items:center;
-    }
-
-    .nav-links a{font-weight:600}
+    .btn-primary:hover{background:var(--primary-dark)}
+    .btn-light{background:#fff;color:var(--primary);border:1px solid var(--border)}
+    header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+    .nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:54px}
+    .brand-text{font-size:1.2rem;font-weight:800;color:#111827;line-height:1}
+    .nav-links{list-style:none;display:flex;align-items:center;gap:24px}
+    .nav-links a{font-weight:600;color:#374151}
     .nav-links a:hover{color:var(--primary)}
-
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:none;
-      font-size:1.8rem;
-      color:var(--primary);
-      cursor:pointer;
-    }
-
+    .menu-toggle{display:none;background:none;border:none;font-size:1.8rem;color:var(--primary)}
     .page-hero{
-      background:
-        linear-gradient(rgba(16,47,85,.78), rgba(16,47,85,.78)),
-        url("https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-      color:#fff;
-      padding:90px 0;
-      text-align:center;
+      background:linear-gradient(rgba(15,94,168,.78),rgba(15,94,168,.72)),
+      url("https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color:#fff;padding:72px 0
     }
-
-    .page-hero h1{
-      font-size:clamp(2.2rem,5vw,4rem);
-      margin-bottom:14px;
-    }
-
-    .page-hero p{
-      max-width:760px;
-      margin:0 auto;
-      color:rgba(255,255,255,.92);
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:14px;
-      color:var(--primary);
-      font-size:clamp(2rem,4vw,3rem);
-    }
-
-    .section-subtitle{
-      text-align:center;
-      max-width:760px;
-      margin:0 auto 42px;
-      color:var(--muted);
-    }
-
-    .cards-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-    }
-
-    .property-card{
-      background:#fff;
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      border:1px solid var(--border);
-    }
-
-    .property-main-image{
-      width:100%;
-      height:240px;
-      object-fit:cover;
-      cursor:pointer;
-    }
-
-    .property-body{padding:22px}
-
-    .property-title{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom:10px;
-    }
-
-    .property-title h3{
-      color:var(--primary);
-      font-size:1.25rem;
-      line-height:1.25;
-    }
-
-    .property-title h3 a:hover{
-      color:var(--accent);
-    }
-
-    .badge{
-      background:#edf4ff;
-      color:var(--primary);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:.82rem;
-      font-weight:700;
-      white-space:nowrap;
-    }
-
-    .price{
-      color:var(--accent);
-      font-weight:800;
-      font-size:1.1rem;
-      margin-bottom:10px;
-    }
-
-    .property-meta{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-bottom:14px;
-    }
-
-    .property-meta span{
-      background:#f4f6f8;
-      border:1px solid var(--border);
-      border-radius:999px;
-      padding:8px 12px;
-      color:var(--muted);
-      font-size:.9rem;
-      font-weight:600;
-    }
-
-    .property-body p{
-      color:var(--muted);
-      margin-bottom:16px;
-    }
-
-    .thumb-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-bottom:18px;
-    }
-
-    .thumb-row img{
-      width:72px;
-      height:56px;
-      object-fit:cover;
-      border-radius:10px;
-      cursor:pointer;
-      border:2px solid transparent;
-      transition:.2s ease;
-    }
-
-    .thumb-row img:hover{
-      border-color:var(--accent);
-      transform:translateY(-2px);
-    }
-
-    .property-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-
-    .lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.86);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-      z-index:999;
-    }
-
+    .page-hero h1{font-size:clamp(2.2rem,5vw,4rem);margin-bottom:10px}
+    .page-hero p{max-width:760px;color:rgba(255,255,255,.92)}
+    .filters{background:#fff;border:1px solid var(--border);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-top:-28px;position:relative}
+    .filter-row{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr auto;gap:12px}
+    .field{width:100%;border:1px solid var(--border);border-radius:14px;padding:14px 15px;font:inherit;background:#fff;outline:none}
+    .field:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(15,94,168,.12)}
+    .section{padding:38px 0 72px}
+    .property-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+    .property-card{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft)}
+    .property-image-wrap{position:relative}
+    .property-card img{width:100%;height:240px;object-fit:cover}
+    .property-tag{position:absolute;top:14px;left:14px;background:#fff;color:var(--primary);border-radius:999px;padding:8px 12px;font-size:.82rem;font-weight:800}
+    .property-body{padding:20px}
+    .property-price{font-size:1.45rem;font-weight:800;margin-bottom:8px}
+    .property-meta{display:flex;flex-wrap:wrap;gap:12px;font-weight:700;color:#374151;margin-bottom:10px}
+    .property-address{font-weight:700;margin-bottom:6px}
+    .property-desc{color:var(--muted);margin-bottom:18px}
+    .thumb-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+    .thumb-row img{width:72px;height:56px;object-fit:cover;border-radius:10px;cursor:pointer;border:2px solid transparent}
+    .thumb-row img:hover{border-color:#0f5ea8}
+    .property-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.86);display:none;align-items:center;justify-content:center;padding:24px;z-index:999}
     .lightbox.active{display:flex}
     .lightbox-content{max-width:1000px;width:100%;position:relative}
-    .lightbox-img{
-      width:100%;
-      max-height:80vh;
-      object-fit:contain;
-      border-radius:16px;
-      background:#111;
-    }
-
-    .lightbox-close,
-    .lightbox-prev,
-    .lightbox-next{
-      position:absolute;
-      border:none;
-      cursor:pointer;
-      border-radius:999px;
-      width:48px;
-      height:48px;
-      font-size:1.3rem;
-      font-weight:700;
-      background:rgba(255,255,255,.92);
-      color:var(--primary);
-      box-shadow:var(--shadow);
-    }
-
+    .lightbox-img{width:100%;max-height:80vh;object-fit:contain;border-radius:16px;background:#111}
+    .lightbox-close,.lightbox-prev,.lightbox-next{position:absolute;border:none;cursor:pointer;border-radius:999px;width:48px;height:48px;font-size:1.3rem;font-weight:700;background:rgba(255,255,255,.92);color:var(--primary)}
     .lightbox-close{top:-18px;right:-18px}
     .lightbox-prev{left:12px;top:50%;transform:translateY(-50%)}
     .lightbox-next{right:12px;top:50%;transform:translateY(-50%)}
     .lightbox-caption{color:#fff;text-align:center;margin-top:14px}
-
-    footer{
-      background:var(--primary);
-      color:#fff;
-      padding:28px 0;
-      margin-top:30px;
+    footer{background:#fff;border-top:1px solid var(--border);margin-top:40px}
+    .footer-wrap{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .footer-wrap p{color:var(--muted)}
+    @media (max-width:1080px){
+      .filter-row,.property-grid{grid-template-columns:1fr 1fr}
     }
-
-    .footer-wrap{
-      display:flex;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    @media (max-width: 1024px){
-      .cards-grid{grid-template-columns:1fr 1fr}
-    }
-
-    @media (max-width: 768px){
+    @media (max-width:768px){
       .menu-toggle{display:block}
-      .nav-links{
-        position:absolute;
-        top:79px; left:0; right:0;
-        background:#fff;
-        border-bottom:1px solid var(--border);
-        display:none;
-        flex-direction:column;
-        align-items:flex-start;
-        padding:20px 4%;
-      }
+      .nav-links{position:absolute;top:85px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);display:none;flex-direction:column;align-items:flex-start;padding:20px 4%}
       .nav-links.active{display:flex}
-      .cards-grid{grid-template-columns:1fr}
-      .property-title{flex-direction:column;align-items:flex-start}
+      .filter-row,.property-grid{grid-template-columns:1fr}
+      .brand img{height:46px}
+      .brand-text{font-size:1rem}
       .lightbox-close{top:10px;right:10px}
     }
   </style>
 </head>
 <body>
-
 <header>
   <div class="container nav">
-    <a href="index.html" class="logo">MY <span>Property</span> Solutions</a>
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpg" alt="MY Property Solutions logo">
+      <span class="brand-text">MY Property Solutions</span>
+    </a>
     <button class="menu-toggle" id="menuToggle">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
@@ -315,161 +99,78 @@
 <section class="page-hero">
   <div class="container">
     <h1>Available Properties</h1>
-    <p>
-      Browse all current listings. Each property can have several pictures, and each listing can link to its own full details page.
-    </p>
+    <p>Explore current rental homes with photos, pricing, and property details.</p>
   </div>
 </section>
 
+<div class="container">
+  <div class="filters">
+    <div class="filter-row">
+      <input class="field" type="text" placeholder="City, neighborhood, or address">
+      <select class="field"><option>Property Type</option><option>House</option><option>Townhome</option><option>Apartment</option></select>
+      <select class="field"><option>Beds</option><option>1+</option><option>2+</option><option>3+</option><option>4+</option></select>
+      <select class="field"><option>Price</option><option>Under $1,500</option><option>$1,500 - $2,000</option><option>$2,000 - $2,500</option><option>$2,500+</option></select>
+      <a href="#" class="btn btn-primary">Search</a>
+    </div>
+  </div>
+</div>
+
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Current Listings</h2>
-    <p class="section-subtitle">
-      Copy and paste these property cards whenever you want to add more listings.
-    </p>
-
-    <div class="cards-grid">
+    <div class="property-grid">
 
       <article class="property-card">
-        <img
-          class="property-main-image gallery-trigger"
-          src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80"
-          alt="Available property in North East, Maryland"
-          data-gallery='[
-            "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
-            "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
-            "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"
-          ]'
-          data-caption="101 Main Street, North East, MD"
-        />
+        <div class="property-image-wrap">
+          <img class="gallery-trigger" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="101 Main Street, North East, MD" data-gallery='["https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"]' data-caption="101 Main Street, North East, MD">
+          <span class="property-tag">Available Now</span>
+        </div>
         <div class="property-body">
-          <div class="property-title">
-            <h3><a href="property-101-main-street.html">101 Main Street, North East, MD</a></h3>
-            <span class="badge">Available Now</span>
-          </div>
-          <div class="price">$1,950 / month</div>
-          <div class="property-meta">
-            <span>3 Beds</span>
-            <span>2 Baths</span>
-            <span>Garage</span>
-          </div>
-          <p>Beautiful, updated home with bright living spaces, modern finishes, and a spacious yard.</p>
-
+          <div class="property-price">$1,950/mo</div>
+          <div class="property-meta"><span>3 bd</span><span>2 ba</span><span>1,850 sqft</span></div>
+          <div class="property-address">101 Main Street, North East, MD</div>
+          <p class="property-desc">Updated interior, spacious yard, bright living areas, and convenient access to local routes.</p>
           <div class="thumb-row">
-            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='[
-              "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"
-            ]' data-caption="101 Main Street, North East, MD">
-            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='[
-              "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"
-            ]' data-caption="101 Main Street, North East, MD">
-            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='[
-              "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"
-            ]' data-caption="101 Main Street, North East, MD">
+            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='["https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"]' data-caption="101 Main Street, North East, MD">
+            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='["https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"]' data-caption="101 Main Street, North East, MD">
+            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='["https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1400&q=80"]' data-caption="101 Main Street, North East, MD">
           </div>
-
           <div class="property-actions">
             <a href="property-101-main-street.html" class="btn btn-primary">View Details</a>
-            <a href="contact.html" class="btn btn-secondary">Ask a Question</a>
+            <a href="contact.html" class="btn btn-light">Schedule Tour</a>
           </div>
         </div>
       </article>
 
       <article class="property-card">
-        <img
-          class="property-main-image gallery-trigger"
-          src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80"
-          alt="Available property in Elkton, Maryland"
-          data-gallery='[
-            "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
-            "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
-            "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"
-          ]'
-          data-caption="22 Oak Lane, Elkton, MD"
-        />
+        <div class="property-image-wrap">
+          <img class="gallery-trigger" src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80" alt="22 Oak Lane, Elkton, MD" data-gallery='["https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"]' data-caption="22 Oak Lane, Elkton, MD">
+          <span class="property-tag">Open House</span>
+        </div>
         <div class="property-body">
-          <div class="property-title">
-            <h3>22 Oak Lane, Elkton, MD</h3>
-            <span class="badge">Open House</span>
-          </div>
-          <div class="price">$1,550 / month</div>
-          <div class="property-meta">
-            <span>2 Beds</span>
-            <span>1 Bath</span>
-            <span>Pet Friendly</span>
-          </div>
-          <p>Cozy and well-maintained rental close to shopping, commuter routes, and local conveniences.</p>
-
-          <div class="thumb-row">
-            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='[
-              "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"
-            ]' data-caption="22 Oak Lane, Elkton, MD">
-            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='[
-              "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"
-            ]' data-caption="22 Oak Lane, Elkton, MD">
-          </div>
-
+          <div class="property-price">$1,550/mo</div>
+          <div class="property-meta"><span>2 bd</span><span>1 ba</span><span>Pet Friendly</span></div>
+          <div class="property-address">22 Oak Lane, Elkton, MD</div>
+          <p class="property-desc">Comfortable rental close to shopping, dining, and commuter routes.</p>
           <div class="property-actions">
             <a href="contact.html" class="btn btn-primary">Request Details</a>
-            <a href="contact.html" class="btn btn-secondary">Apply Now</a>
+            <a href="contact.html" class="btn btn-light">Schedule Tour</a>
           </div>
         </div>
       </article>
 
       <article class="property-card">
-        <img
-          class="property-main-image gallery-trigger"
-          src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=80"
-          alt="Available property in Perryville, Maryland"
-          data-gallery='[
-            "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80",
-            "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1400&q=80",
-            "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"
-          ]'
-          data-caption="18 Maple Drive, Perryville, MD"
-        />
+        <div class="property-image-wrap">
+          <img class="gallery-trigger" src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=80" alt="18 Maple Drive, Perryville, MD" data-gallery='["https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1400&q=80","https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"]' data-caption="18 Maple Drive, Perryville, MD">
+          <span class="property-tag">New Listing</span>
+        </div>
         <div class="property-body">
-          <div class="property-title">
-            <h3>18 Maple Drive, Perryville, MD</h3>
-            <span class="badge">New Listing</span>
-          </div>
-          <div class="price">$2,250 / month</div>
-          <div class="property-meta">
-            <span>4 Beds</span>
-            <span>2.5 Baths</span>
-            <span>Large Yard</span>
-          </div>
-          <p>Spacious home with a flexible layout, updated kitchen, and plenty of room for comfortable living.</p>
-
-          <div class="thumb-row">
-            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='[
-              "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"
-            ]' data-caption="18 Maple Drive, Perryville, MD">
-            <img class="gallery-trigger" src="https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=400&q=80" alt="" data-gallery='[
-              "https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1400&q=80",
-              "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80"
-            ]' data-caption="18 Maple Drive, Perryville, MD">
-          </div>
-
+          <div class="property-price">$2,250/mo</div>
+          <div class="property-meta"><span>4 bd</span><span>2.5 ba</span><span>Large Yard</span></div>
+          <div class="property-address">18 Maple Drive, Perryville, MD</div>
+          <p class="property-desc">Spacious layout, modern kitchen, and plenty of room for everyday living.</p>
           <div class="property-actions">
-            <a href="contact.html" class="btn btn-primary">Book a Tour</a>
-            <a href="contact.html" class="btn btn-secondary">Get More Info</a>
+            <a href="contact.html" class="btn btn-primary">Request Details</a>
+            <a href="contact.html" class="btn btn-light">Schedule Tour</a>
           </div>
         </div>
       </article>
@@ -481,10 +182,10 @@
 <footer>
   <div class="container footer-wrap">
     <div>
-      <h3>MY Property Solutions</h3>
+      <strong style="color:var(--primary);">MY Property Solutions</strong>
       <p>Your local property experts.</p>
     </div>
-    <p>© 2026 MY Property Solutions. All rights reserved.</p>
+    <p>© 2026 MY Property Solutions</p>
   </div>
 </footer>
 
@@ -501,10 +202,7 @@
 <script>
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+  menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
 
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightboxImg");
@@ -512,7 +210,6 @@
   const lightboxClose = document.getElementById("lightboxClose");
   const lightboxPrev = document.getElementById("lightboxPrev");
   const lightboxNext = document.getElementById("lightboxNext");
-
   let currentGallery = [];
   let currentIndex = 0;
 
@@ -524,24 +221,20 @@
     lightbox.classList.add("active");
     document.body.style.overflow = "hidden";
   }
-
   function closeLightbox() {
     lightbox.classList.remove("active");
     document.body.style.overflow = "";
   }
-
   function showNext() {
     if (!currentGallery.length) return;
     currentIndex = (currentIndex + 1) % currentGallery.length;
     lightboxImg.src = currentGallery[currentIndex];
   }
-
   function showPrev() {
     if (!currentGallery.length) return;
     currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
     lightboxImg.src = currentGallery[currentIndex];
   }
-
   document.querySelectorAll(".gallery-trigger").forEach(trigger => {
     trigger.addEventListener("click", () => {
       const gallery = JSON.parse(trigger.dataset.gallery || "[]");
@@ -552,15 +245,10 @@
       openLightbox(gallery, index, caption);
     });
   });
-
   lightboxClose.addEventListener("click", closeLightbox);
   lightboxNext.addEventListener("click", showNext);
   lightboxPrev.addEventListener("click", showPrev);
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) closeLightbox();
-  });
-
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener("keydown", (e) => {
     if (!lightbox.classList.contains("active")) return;
     if (e.key === "Escape") closeLightbox();
@@ -568,6 +256,5 @@
     if (e.key === "ArrowLeft") showPrev();
   });
 </script>
-
 </body>
 </html>
