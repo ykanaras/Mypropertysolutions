@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Property Solutions | Home</title>
+  <meta name="description" content="Property management website with available properties, leased properties, and contact information." />
+  <style>
+    :root{
+      --bg:#f7f8fa;
+      --white:#ffffff;
+      --text:#16202a;
+      --muted:#5f6b76;
+      --primary:#153d6f;
+      --primary-dark:#102f55;
+      --accent:#d8a85f;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:18px;
+      --max-width:1200px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(92%,var(--max-width));margin:0 auto}
+    .section{padding:80px 0}
+    .btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:700;transition:.25s ease;border:none;cursor:pointer}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+    .btn-secondary{background:transparent;border:2px solid var(--primary);color:var(--primary)}
+    .btn-secondary:hover{background:var(--primary);color:#fff}
+
+    header{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      font-size:1.3rem;
+      font-weight:800;
+      color:var(--primary);
+    }
+
+    .logo span{color:var(--accent)}
+
+    .nav-links{
+      list-style:none;
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+
+    .nav-links a{
+      font-weight:600;
+      color:var(--text);
+    }
+
+    .nav-links a:hover{color:var(--primary)}
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.8rem;
+      color:var(--primary);
+      cursor:pointer;
+    }
+
+    .hero{
+      background:
+        linear-gradient(rgba(16,47,85,.72), rgba(16,47,85,.72)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      color:#fff;
+      padding:120px 0 110px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:clamp(2.4rem,5vw,4.5rem);
+      line-height:1.05;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      max-width:680px;
+      margin-bottom:28px;
+      color:rgba(255,255,255,.92);
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+    }
+
+    .hero-card{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter:blur(8px);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card h3{margin-bottom:12px;font-size:1.4rem}
+    .hero-card ul{list-style:none;display:grid;gap:10px}
+    .hero-card li{padding-left:24px;position:relative}
+    .hero-card li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      color:var(--accent);
+      font-weight:700;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:14px;
+      color:var(--primary);
+      font-size:clamp(2rem,4vw,3rem);
+      line-height:1.15;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 42px;
+      color:var(--muted);
+    }
+
+    .cards-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    .card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+    }
+
+    .card-body{padding:24px}
+    .card-body h3{color:var(--primary);margin-bottom:10px}
+    .card-body p{color:var(--muted);margin-bottom:18px}
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .about-image{
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-height:420px;
+    }
+
+    .about-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .about-content h2{
+      color:var(--primary);
+      font-size:clamp(2rem,4vw,3rem);
+      margin-bottom:18px;
+      line-height:1.15;
+    }
+
+    .about-content p{
+      color:var(--muted);
+      margin-bottom:16px;
+    }
+
+    .feature-list{display:grid;gap:14px;margin-top:20px}
+    .feature-item{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:16px 18px;
+    }
+
+    .feature-item h4{color:var(--primary);margin-bottom:6px}
+
+    footer{
+      background:var(--primary);
+      color:#fff;
+      padding:28px 0;
+      margin-top:30px;
+    }
+
+    .footer-wrap{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .footer-wrap p{color:rgba(255,255,255,.88)}
+
+    @media (max-width: 900px){
+      .hero-grid,.about-grid,.cards-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 768px){
+      .menu-toggle{display:block}
+      .nav-links{
+        position:absolute;
+        top:79px; left:0; right:0;
+        background:#fff;
+        border-bottom:1px solid var(--border);
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px 4%;
+      }
+      .nav-links.active{display:flex}
+      .hero{padding:95px 0 85px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">MY <span>Property</span> Solutions</a>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="available-properties.html">Available Properties</a></li>
+      <li><a href="leased-properties.html">Leased Properties</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>Modern Property Management With a Better Rental Experience</h1>
+      <p>
+        Browse available homes, explore recently leased properties, and contact us directly
+        for showings, management services, or general questions.
+      </p>
+      <div class="hero-actions">
+        <a href="available-properties.html" class="btn btn-primary">View Available Properties</a>
+        <a href="leased-properties.html" class="btn btn-secondary">View Leased Properties</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>Why this layout works better</h3>
+      <ul>
+        <li>Separate page for available properties</li>
+        <li>Separate page for leased properties</li>
+        <li>Cleaner, easier navigation</li>
+        <li>Better setup for adding lots of listings</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Explore Our Properties</h2>
+    <p class="section-subtitle">
+      The property sections now live on their own pages so you can add many more listings without cluttering the homepage.
+    </p>
+
+    <div class="cards-grid">
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Available properties">
+        <div class="card-body">
+          <h3>Available Properties</h3>
+          <p>
+            Showcase all current rentals with multiple photos, descriptions, pricing, and property details.
+          </p>
+          <a href="available-properties.html" class="btn btn-primary">See Available</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80" alt="Leased properties">
+        <div class="card-body">
+          <h3>Leased Properties</h3>
+          <p>
+            Keep a strong record of successfully leased homes with one featured image per property.
+          </p>
+          <a href="leased-properties.html" class="btn btn-primary">See Leased</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80" alt="Contact us">
+        <div class="card-body">
+          <h3>Contact Us</h3>
+          <p>
+            Give renters, owners, and prospective clients a direct way to reach out from a dedicated contact page.
+          </p>
+          <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#eef3f8;">
+  <div class="container about-grid">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1200&q=80" alt="Modern home exterior">
+    </div>
+
+    <div class="about-content">
+      <h2>A cleaner website built to grow with your business</h2>
+      <p>
+        This structure makes it much easier to organize lots of listings and keep your site looking professional.
+      </p>
+      <p>
+        Instead of squeezing everything onto one page, each major section now has room to grow.
+      </p>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <h4>Available listings page</h4>
+          <p>Add as many open properties as you need with multiple photos per listing.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Leased listings page</h4>
+          <p>Display past success clearly without crowding your main page.</p>
+        </div>
+        <div class="feature-item">
+          <h4>Dedicated contact page</h4>
+          <p>Make it easy for clients to ask questions, schedule showings, or inquire about management services.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-wrap">
+    <div>
+      <h3>MY Property Solutions</h3>
+      <p>Your local property experts.</p>
+    </div>
+    <p>© 2026 MY Property Solutions. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
+</body>
+</html>
