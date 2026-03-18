@@ -3,243 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Property Solutions | Home</title>
-  <meta name="description" content="Property management website with available properties, leased properties, and contact information." />
+  <title>MY Property Solutions | Home</title>
+  <meta name="description" content="Browse available rental homes and connect with MY Property Solutions." />
   <style>
     :root{
-      --bg:#f7f8fa;
+      --bg:#f5f7fb;
       --white:#ffffff;
-      --text:#16202a;
-      --muted:#5f6b76;
-      --primary:#153d6f;
-      --primary-dark:#102f55;
-      --accent:#d8a85f;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --primary:#0f5ea8;
+      --primary-dark:#0b4a86;
       --border:#e5e7eb;
-      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --shadow:0 10px 30px rgba(15,23,42,.08);
+      --shadow-soft:0 4px 18px rgba(15,23,42,.06);
       --radius:18px;
-      --max-width:1200px;
+      --max-width:1240px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
-    .container{width:min(92%,var(--max-width));margin:0 auto}
-    .section{padding:80px 0}
-    .btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:700;transition:.25s ease;border:none;cursor:pointer}
+    .container{width:min(94%,var(--max-width));margin:0 auto}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:12px;font-weight:700;transition:.2s ease;border:none;cursor:pointer}
     .btn-primary{background:var(--primary);color:#fff}
-    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
-    .btn-secondary{background:transparent;border:2px solid #fff;color:#fff}
-    .btn-secondary:hover{background:#fff;color:var(--primary)}
-
-    header{
-      background:#fff;
-      border-bottom:1px solid var(--border);
-      position:sticky;
-      top:0;
-      z-index:100;
-    }
-
-    .nav{
-      min-height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .logo{
-      font-size:1.3rem;
-      font-weight:800;
-      color:var(--primary);
-    }
-
-    .logo span{color:var(--accent)}
-
-    .nav-links{
-      list-style:none;
-      display:flex;
-      gap:24px;
-      align-items:center;
-    }
-
-    .nav-links a{
-      font-weight:600;
-      color:var(--text);
-    }
-
+    .btn-primary:hover{background:var(--primary-dark)}
+    .btn-light{background:#fff;color:var(--primary);border:1px solid var(--border)}
+    .btn-light:hover{background:#f8fafc}
+    .section{padding:72px 0}
+    .section-title{font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.15;margin-bottom:12px;color:#111827}
+    .section-subtitle{color:var(--muted);max-width:700px}
+    header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+    .nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:54px;width:auto}
+    .brand-text{font-size:1.2rem;font-weight:800;color:#111827;line-height:1}
+    .nav-links{list-style:none;display:flex;align-items:center;gap:24px}
+    .nav-links a{font-weight:600;color:#374151}
     .nav-links a:hover{color:var(--primary)}
-
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:none;
-      font-size:1.8rem;
-      color:var(--primary);
-      cursor:pointer;
-    }
-
+    .menu-toggle{display:none;background:none;border:none;font-size:1.8rem;color:var(--primary);cursor:pointer}
     .hero{
       background:
-        linear-gradient(rgba(16,47,85,.72), rgba(16,47,85,.72)),
-        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-      color:#fff;
-      padding:130px 0 120px;
-      text-align:center;
+        linear-gradient(rgba(15,94,168,.52),rgba(15,94,168,.42)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color:#fff;padding:110px 0 90px
     }
-
-    .hero-content{
-      max-width:850px;
-      margin:0 auto;
+    .hero-content{max-width:900px;margin:0 auto;text-align:center}
+    .hero h1{font-size:clamp(2.4rem,5vw,4.5rem);line-height:1.05;margin-bottom:16px;font-weight:800}
+    .hero p{max-width:720px;margin:0 auto 28px;font-size:1.08rem;color:rgba(255,255,255,.95)}
+    .search-card{max-width:980px;margin:0 auto;background:#fff;border-radius:20px;padding:18px;box-shadow:0 18px 45px rgba(0,0,0,.18)}
+    .search-row{display:grid;grid-template-columns:1.6fr .9fr .9fr auto;gap:12px;align-items:center}
+    .search-field{width:100%;border:1px solid var(--border);border-radius:14px;padding:15px 16px;font:inherit;color:var(--text);background:#fff;outline:none}
+    .search-field:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(15,94,168,.12)}
+    .quick-links{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .quick-links a{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);color:#fff;padding:9px 14px;border-radius:999px;font-weight:700;font-size:.95rem}
+    .stats-wrap{margin-top:-34px;position:relative;z-index:3}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .stat-card{background:#fff;border-radius:18px;padding:24px 18px;box-shadow:var(--shadow);text-align:center;border:1px solid var(--border)}
+    .stat-card h3{color:var(--primary);font-size:1.9rem;margin-bottom:5px}
+    .stat-card p{color:var(--muted);font-weight:600}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:26px}
+    .property-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .property-card{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft);transition:.2s ease}
+    .property-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .property-image-wrap{position:relative}
+    .property-card img{width:100%;height:240px;object-fit:cover}
+    .property-tag{position:absolute;top:14px;left:14px;background:#fff;color:var(--primary);border-radius:999px;padding:8px 12px;font-size:.82rem;font-weight:800;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+    .property-body{padding:20px}
+    .property-price{font-size:1.45rem;font-weight:800;color:#111827;margin-bottom:8px}
+    .property-meta{display:flex;flex-wrap:wrap;gap:12px;font-weight:700;color:#374151;margin-bottom:10px}
+    .property-address{color:#111827;font-weight:700;margin-bottom:6px}
+    .property-desc{color:var(--muted);font-size:.97rem;margin-bottom:18px}
+    .property-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .browse-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .browse-card{background:#fff;border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:var(--shadow-soft)}
+    .browse-card h3{color:#111827;margin-bottom:8px;font-size:1.25rem}
+    .browse-card p{color:var(--muted);margin-bottom:16px}
+    .cta{background:linear-gradient(135deg,#0f5ea8,#0b4a86);color:#fff;border-radius:28px;padding:42px;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center;box-shadow:var(--shadow)}
+    .cta h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:10px;line-height:1.1}
+    .cta p{color:rgba(255,255,255,.92);max-width:680px}
+    .cta-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap}
+    footer{background:#fff;border-top:1px solid var(--border);margin-top:40px}
+    .footer-wrap{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .footer-wrap p{color:var(--muted)}
+    @media (max-width:1080px){
+      .search-row{grid-template-columns:1fr 1fr}
+      .stats-grid,.property-grid,.browse-grid{grid-template-columns:1fr 1fr}
+      .cta{grid-template-columns:1fr}
+      .cta-actions{justify-content:flex-start}
     }
-
-    .hero h1{
-      font-size:clamp(2.5rem,5vw,4.8rem);
-      line-height:1.05;
-      margin-bottom:20px;
-    }
-
-    .hero p{
-      font-size:1.1rem;
-      max-width:700px;
-      margin:0 auto 30px;
-      color:rgba(255,255,255,.92);
-    }
-
-    .hero-actions{
-      display:flex;
-      justify-content:center;
-      flex-wrap:wrap;
-      gap:14px;
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:14px;
-      color:var(--primary);
-      font-size:clamp(2rem,4vw,3rem);
-      line-height:1.15;
-    }
-
-    .section-subtitle{
-      text-align:center;
-      max-width:760px;
-      margin:0 auto 42px;
-      color:var(--muted);
-    }
-
-    .cards-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-    }
-
-    .card{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    .card img{
-      width:100%;
-      height:240px;
-      object-fit:cover;
-    }
-
-    .card-body{padding:24px}
-    .card-body h3{color:var(--primary);margin-bottom:10px}
-    .card-body p{color:var(--muted);margin-bottom:18px}
-
-    .about-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:34px;
-      align-items:center;
-    }
-
-    .about-image{
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      min-height:420px;
-    }
-
-    .about-image img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .about-content h2{
-      color:var(--primary);
-      font-size:clamp(2rem,4vw,3rem);
-      margin-bottom:18px;
-      line-height:1.15;
-    }
-
-    .about-content p{
-      color:var(--muted);
-      margin-bottom:16px;
-    }
-
-    .feature-list{display:grid;gap:14px;margin-top:20px}
-    .feature-item{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:16px 18px;
-    }
-
-    .feature-item h4{color:var(--primary);margin-bottom:6px}
-
-    footer{
-      background:var(--primary);
-      color:#fff;
-      padding:28px 0;
-      margin-top:30px;
-    }
-
-    .footer-wrap{
-      display:flex;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .footer-wrap p{color:rgba(255,255,255,.88)}
-
-    @media (max-width: 900px){
-      .about-grid,.cards-grid{grid-template-columns:1fr}
-    }
-
-    @media (max-width: 768px){
+    @media (max-width:768px){
       .menu-toggle{display:block}
-      .nav-links{
-        position:absolute;
-        top:79px; left:0; right:0;
-        background:#fff;
-        border-bottom:1px solid var(--border);
-        display:none;
-        flex-direction:column;
-        align-items:flex-start;
-        padding:20px 4%;
-      }
+      .nav-links{position:absolute;top:85px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);display:none;flex-direction:column;align-items:flex-start;padding:20px 4%}
       .nav-links.active{display:flex}
-      .hero{padding:95px 0 85px}
+      .search-row,.stats-grid,.property-grid,.browse-grid{grid-template-columns:1fr}
+      .section-head{flex-direction:column;align-items:flex-start}
+      .hero{padding:90px 0 74px}
+      .search-card{padding:14px}
+      .cta{padding:30px 22px}
+      .brand img{height:46px}
+      .brand-text{font-size:1rem}
     }
   </style>
 </head>
 <body>
-
 <header>
   <div class="container nav">
-    <a href="index.html" class="logo">MY <span>Property</span> Solutions</a>
-
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpg" alt="MY Property Solutions logo">
+      <span class="brand-text">MY Property Solutions</span>
+    </a>
     <button class="menu-toggle" id="menuToggle">☰</button>
-
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="available-properties.html">Available Properties</a></li>
@@ -251,90 +124,143 @@
 
 <section class="hero">
   <div class="container hero-content">
-    <h1>Modern Property Management With a Better Rental Experience</h1>
-    <p>
-      Browse available homes, explore recently leased properties, and contact us directly
-      for showings, management services, or general questions.
-    </p>
-    <div class="hero-actions">
-      <a href="available-properties.html" class="btn btn-primary">View Available Properties</a>
-      <a href="leased-properties.html" class="btn btn-secondary">View Leased Properties</a>
+    <h1>Find your next home with confidence</h1>
+    <p>Browse available rentals, explore recently leased homes, and connect with a local team that knows the market.</p>
+    <div class="search-card">
+      <div class="search-row">
+        <input class="search-field" type="text" placeholder="City, neighborhood, or address">
+        <select class="search-field">
+          <option>Property Type</option>
+          <option>House</option>
+          <option>Townhome</option>
+          <option>Apartment</option>
+        </select>
+        <select class="search-field">
+          <option>Price Range</option>
+          <option>Under $1,500</option>
+          <option>$1,500 - $2,000</option>
+          <option>$2,000 - $2,500</option>
+          <option>$2,500+</option>
+        </select>
+        <a href="available-properties.html" class="btn btn-primary">Search</a>
+      </div>
+    </div>
+    <div class="quick-links">
+      <a href="available-properties.html">Available Rentals</a>
+      <a href="leased-properties.html">Recently Leased</a>
+      <a href="contact.html">Schedule a Showing</a>
+    </div>
+  </div>
+</section>
+
+<section class="stats-wrap">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card"><h3>25+</h3><p>Homes Managed</p></div>
+      <div class="stat-card"><h3>10+</h3><p>Years Experience</p></div>
+      <div class="stat-card"><h3>Fast</h3><p>Leasing Turnaround</p></div>
+      <div class="stat-card"><h3>Local</h3><p>Market Knowledge</p></div>
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Explore Our Properties</h2>
-    <p class="section-subtitle">
-      The property sections now live on their own pages so you can add many more listings without cluttering the homepage.
-    </p>
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">Featured homes</h2>
+        <p class="section-subtitle">Browse current listings with photos, pricing, and key details.</p>
+      </div>
+      <a href="available-properties.html" class="btn btn-light">View All Properties</a>
+    </div>
 
-    <div class="cards-grid">
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Available properties">
-        <div class="card-body">
-          <h3>Available Properties</h3>
-          <p>
-            Showcase all current rentals with multiple photos, descriptions, pricing, and property details.
-          </p>
-          <a href="available-properties.html" class="btn btn-primary">See Available</a>
+    <div class="property-grid">
+      <article class="property-card">
+        <div class="property-image-wrap">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="101 Main Street, North East, MD">
+          <span class="property-tag">Available Now</span>
+        </div>
+        <div class="property-body">
+          <div class="property-price">$1,950/mo</div>
+          <div class="property-meta"><span>3 bd</span><span>2 ba</span><span>1,850 sqft</span></div>
+          <div class="property-address">101 Main Street, North East, MD</div>
+          <p class="property-desc">Updated interior, spacious yard, bright living areas, and convenient access to local routes.</p>
+          <div class="property-actions">
+            <a href="property-101-main-street.html" class="btn btn-primary">View Details</a>
+            <a href="contact.html" class="btn btn-light">Schedule Tour</a>
+          </div>
         </div>
       </article>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80" alt="Leased properties">
-        <div class="card-body">
-          <h3>Leased Properties</h3>
-          <p>
-            Keep a strong record of successfully leased homes with one featured image per property.
-          </p>
-          <a href="leased-properties.html" class="btn btn-primary">See Leased</a>
+      <article class="property-card">
+        <div class="property-image-wrap">
+          <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80" alt="22 Oak Lane, Elkton, MD">
+          <span class="property-tag">Open House</span>
+        </div>
+        <div class="property-body">
+          <div class="property-price">$1,550/mo</div>
+          <div class="property-meta"><span>2 bd</span><span>1 ba</span><span>Pet Friendly</span></div>
+          <div class="property-address">22 Oak Lane, Elkton, MD</div>
+          <p class="property-desc">Comfortable rental close to shopping, dining, and commuter routes.</p>
+          <div class="property-actions">
+            <a href="available-properties.html" class="btn btn-primary">View Details</a>
+            <a href="contact.html" class="btn btn-light">Schedule Tour</a>
+          </div>
         </div>
       </article>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80" alt="Contact us">
-        <div class="card-body">
-          <h3>Contact Us</h3>
-          <p>
-            Give renters, owners, and prospective clients a direct way to reach out from a dedicated contact page.
-          </p>
-          <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+      <article class="property-card">
+        <div class="property-image-wrap">
+          <img src="https://images.unsplash.com/photo-1448630360428-65456885c650?auto=format&fit=crop&w=1200&q=80" alt="18 Maple Drive, Perryville, MD">
+          <span class="property-tag">New Listing</span>
+        </div>
+        <div class="property-body">
+          <div class="property-price">$2,250/mo</div>
+          <div class="property-meta"><span>4 bd</span><span>2.5 ba</span><span>Large Yard</span></div>
+          <div class="property-address">18 Maple Drive, Perryville, MD</div>
+          <p class="property-desc">Spacious layout, modern kitchen, and plenty of room for everyday living.</p>
+          <div class="property-actions">
+            <a href="available-properties.html" class="btn btn-primary">View Details</a>
+            <a href="contact.html" class="btn btn-light">Schedule Tour</a>
+          </div>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" style="background:#eef3f8;">
-  <div class="container about-grid">
-    <div class="about-image">
-      <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1200&q=80" alt="Modern home exterior">
+<section class="section">
+  <div class="container">
+    <div class="browse-grid">
+      <div class="browse-card">
+        <h3>Available Properties</h3>
+        <p>See current rental opportunities with photos, pricing, and property details.</p>
+        <a href="available-properties.html" class="btn btn-primary">Browse Rentals</a>
+      </div>
+      <div class="browse-card">
+        <h3>Leased Properties</h3>
+        <p>View recently rented homes across our service area.</p>
+        <a href="leased-properties.html" class="btn btn-light">See Leased Homes</a>
+      </div>
+      <div class="browse-card">
+        <h3>Contact Our Team</h3>
+        <p>Questions about a listing or ready to schedule a showing?</p>
+        <a href="contact.html" class="btn btn-light">Contact Us</a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="about-content">
-      <h2>A cleaner website built to grow with your business</h2>
-      <p>
-        This structure makes it much easier to organize lots of listings and keep your site looking professional.
-      </p>
-      <p>
-        Instead of squeezing everything onto one page, each major section now has room to grow.
-      </p>
-
-      <div class="feature-list">
-        <div class="feature-item">
-          <h4>Available listings page</h4>
-          <p>Add as many open properties as you need with multiple photos per listing.</p>
-        </div>
-        <div class="feature-item">
-          <h4>Leased listings page</h4>
-          <p>Display past success clearly without crowding your main page.</p>
-        </div>
-        <div class="feature-item">
-          <h4>Dedicated contact page</h4>
-          <p>Make it easy for clients to ask questions, schedule showings, or inquire about management services.</p>
-        </div>
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <div>
+        <h2>Ready to schedule a showing?</h2>
+        <p>Reach out for availability, tours, leasing questions, or property management services.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn-light">Contact Us</a>
+        <a href="available-properties.html" class="btn btn-light">View Listings</a>
       </div>
     </div>
   </div>
@@ -343,21 +269,17 @@
 <footer>
   <div class="container footer-wrap">
     <div>
-      <h3>MY Property Solutions</h3>
+      <strong style="color:var(--primary);">MY Property Solutions</strong>
       <p>Your local property experts.</p>
     </div>
-    <p>© 2026 MY Property Solutions. All rights reserved.</p>
+    <p>© 2026 MY Property Solutions</p>
   </div>
 </footer>
 
 <script>
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+  menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
 </script>
-
 </body>
 </html>
