@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | My Property Solutions</title>
+  <meta name="description" content="Contact My Property Solutions for property inquiries, showings, and management services." />
+  <style>
+    :root{
+      --bg:#f7f8fa;
+      --white:#ffffff;
+      --text:#16202a;
+      --muted:#5f6b76;
+      --primary:#153d6f;
+      --primary-dark:#102f55;
+      --accent:#d8a85f;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --radius:18px;
+      --max-width:1200px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(92%,var(--max-width));margin:0 auto}
+    .section{padding:80px 0}
+    .btn{display:inline-block;padding:14px 24px;border-radius:999px;font-weight:700;transition:.25s ease;border:none;cursor:pointer}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-dark)}
+
+    header{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo{
+      font-size:1.3rem;
+      font-weight:800;
+      color:var(--primary);
+    }
+
+    .logo span{color:var(--accent)}
+
+    .nav-links{
+      list-style:none;
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+
+    .nav-links a{font-weight:600}
+    .nav-links a:hover{color:var(--primary)}
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.8rem;
+      color:var(--primary);
+      cursor:pointer;
+    }
+
+    .page-hero{
+      background:
+        linear-gradient(rgba(16,47,85,.78), rgba(16,47,85,.78)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      color:#fff;
+      padding:90px 0;
+      text-align:center;
+    }
+
+    .page-hero h1{
+      font-size:clamp(2.2rem,5vw,4rem);
+      margin-bottom:14px;
+    }
+
+    .page-hero p{
+      max-width:760px;
+      margin:0 auto;
+      color:rgba(255,255,255,.92);
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:14px;
+      color:var(--primary);
+      font-size:clamp(2rem,4vw,3rem);
+    }
+
+    .section-subtitle{
+      text-align:center;
+      max-width:760px;
+      margin:0 auto 42px;
+      color:var(--muted);
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:34px;
+      align-items:start;
+    }
+
+    .contact-info{
+      display:grid;
+      gap:16px;
+    }
+
+    .contact-item{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .contact-item h4{
+      color:var(--primary);
+      margin-bottom:5px;
+    }
+
+    .contact-item p,.contact-item a{
+      color:var(--muted);
+    }
+
+    .form-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .form-card h3{
+      color:var(--primary);
+      margin-bottom:16px;
+    }
+
+    .form-grid{display:grid;gap:16px}
+    .two-col{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:16px;
+    }
+
+    input,textarea,select{
+      width:100%;
+      border:1px solid #d6dae0;
+      background:#fff;
+      border-radius:12px;
+      padding:14px 15px;
+      font:inherit;
+      color:var(--text);
+      outline:none;
+    }
+
+    input:focus,textarea:focus,select:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(21,61,111,.12);
+    }
+
+    textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+
+    .form-note{
+      font-size:.92rem;
+      color:var(--muted);
+      margin-top:12px;
+    }
+
+    footer{
+      background:var(--primary);
+      color:#fff;
+      padding:28px 0;
+      margin-top:30px;
+    }
+
+    .footer-wrap{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    @media (max-width: 768px){
+      .menu-toggle{display:block}
+      .nav-links{
+        position:absolute;
+        top:79px; left:0; right:0;
+        background:#fff;
+        border-bottom:1px solid var(--border);
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px 4%;
+      }
+      .nav-links.active{display:flex}
+      .contact-grid,.two-col{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="index.html" class="logo">MY <span>Property</span> Solutions</a>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="available-properties.html">Available Properties</a></li>
+      <li><a href="leased-properties.html">Leased Properties</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p>
+      Reach out for available rentals, scheduling a showing, owner services, or general property management questions.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-subtitle">
+      Make it easy for renters, owners, and prospects to contact you.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <h4>Phone</h4>
+          <p><a href="tel:4435532504">(443) 553-2504</a></p>
+        </div>
+
+        <div class="contact-item">
+          <h4>Email</h4>
+          <p><a href="mailto:contact@mypropertysolutionsmd.com">contact@mypropertysolutionsmd.com</a></p>
+        </div>
+
+        <div class="contact-item">
+          <h4>Service Area</h4>
+          <p>Cecil County, Harford County, and surrounding Maryland communities</p>
+        </div>
+
+        <div class="contact-item">
+          <h4>Common Reasons to Reach Out</h4>
+          <p>Available rentals, showings, owner services, leasing questions, and property management inquiries.</p>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Send a Message</h3>
+        <form action="https://formspree.io/f/yourformid" method="POST" class="form-grid">
+          <div class="two-col">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+          </div>
+
+          <div class="two-col">
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Phone Number">
+          </div>
+
+          <select name="inquiry_type" required>
+            <option value="">Select Inquiry Type</option>
+            <option value="available-property">Available Property</option>
+            <option value="schedule-showing">Schedule a Showing</option>
+            <option value="property-management">Property Management</option>
+            <option value="owner-services">Owner Services</option>
+            <option value="general-question">General Question</option>
+          </select>
+
+          <input type="text" name="property_interest" placeholder="Property of Interest (optional)">
+
+          <textarea name="message" placeholder="Tell us how we can help..." required></textarea>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+
+        <p class="form-note">
+          Replace the demo form action with your real Formspree, Netlify, or backend form endpoint before publishing.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-wrap">
+    <div>
+      <h3>MY Property Solutions</h3>
+      <p>Your local property experts.</p>
+    </div>
+    <p>© 2026 MY Property Solutions. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
+
+</body>
+</html>
