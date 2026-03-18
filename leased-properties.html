@@ -1,198 +1,64 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leased Properties | My Property Solutions</title>
-  <meta name="description" content="Browse leased properties and showcase past rental success." />
+  <title>Leased Properties | MY Property Solutions</title>
+  <meta name="description" content="View recently leased homes." />
   <style>
     :root{
-      --bg:#f7f8fa;
-      --white:#ffffff;
-      --text:#16202a;
-      --muted:#5f6b76;
-      --primary:#153d6f;
-      --primary-dark:#102f55;
-      --accent:#d8a85f;
-      --border:#e5e7eb;
-      --shadow:0 10px 30px rgba(0,0,0,.08);
-      --radius:18px;
-      --max-width:1200px;
+      --bg:#f5f7fb;--white:#ffffff;--text:#1f2937;--muted:#6b7280;--primary:#0f5ea8;--primary-dark:#0b4a86;--border:#e5e7eb;--shadow:0 10px 30px rgba(15,23,42,.08);--shadow-soft:0 4px 18px rgba(15,23,42,.06);--radius:18px;--max-width:1240px;
     }
-
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
     img{max-width:100%;display:block}
     a{text-decoration:none;color:inherit}
-    .container{width:min(92%,var(--max-width));margin:0 auto}
-    .section{padding:80px 0}
-
-    header{
-      background:#fff;
-      border-bottom:1px solid var(--border);
-      position:sticky;
-      top:0;
-      z-index:100;
-    }
-
-    .nav{
-      min-height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .logo{
-      font-size:1.3rem;
-      font-weight:800;
-      color:var(--primary);
-    }
-
-    .logo span{color:var(--accent)}
-
-    .nav-links{
-      list-style:none;
-      display:flex;
-      gap:24px;
-      align-items:center;
-    }
-
-    .nav-links a{font-weight:600}
+    .container{width:min(94%,var(--max-width));margin:0 auto}
+    header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+    .nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand img{height:54px}
+    .brand-text{font-size:1.2rem;font-weight:800;color:#111827;line-height:1}
+    .nav-links{list-style:none;display:flex;align-items:center;gap:24px}
+    .nav-links a{font-weight:600;color:#374151}
     .nav-links a:hover{color:var(--primary)}
-
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:none;
-      font-size:1.8rem;
-      color:var(--primary);
-      cursor:pointer;
-    }
-
+    .menu-toggle{display:none;background:none;border:none;font-size:1.8rem;color:var(--primary)}
     .page-hero{
-      background:
-        linear-gradient(rgba(16,47,85,.78), rgba(16,47,85,.78)),
-        url("https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
-      color:#fff;
-      padding:90px 0;
-      text-align:center;
+      background:linear-gradient(rgba(15,94,168,.78),rgba(15,94,168,.72)),
+      url("https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      color:#fff;padding:72px 0
     }
-
-    .page-hero h1{
-      font-size:clamp(2.2rem,5vw,4rem);
-      margin-bottom:14px;
-    }
-
-    .page-hero p{
-      max-width:760px;
-      margin:0 auto;
-      color:rgba(255,255,255,.92);
-    }
-
-    .section-title{
-      text-align:center;
-      margin-bottom:14px;
-      color:var(--primary);
-      font-size:clamp(2rem,4vw,3rem);
-    }
-
-    .section-subtitle{
-      text-align:center;
-      max-width:760px;
-      margin:0 auto 42px;
-      color:var(--muted);
-    }
-
-    .cards-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:24px;
-    }
-
-    .leased-card{
-      background:#fff;
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      border:1px solid var(--border);
-    }
-
-    .leased-card img{
-      width:100%;
-      height:240px;
-      object-fit:cover;
-    }
-
-    .leased-body{padding:22px}
-
-    .leased-title{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      margin-bottom:10px;
-    }
-
-    .leased-title h3{
-      color:var(--primary);
-      font-size:1.25rem;
-    }
-
-    .badge{
-      background:#edf4ff;
-      color:var(--primary);
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:.82rem;
-      font-weight:700;
-      white-space:nowrap;
-    }
-
+    .page-hero h1{font-size:clamp(2.2rem,5vw,4rem);margin-bottom:10px}
+    .page-hero p{max-width:760px;color:rgba(255,255,255,.92)}
+    .section{padding:50px 0 72px}
+    .property-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .leased-card{background:#fff;border:1px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft)}
+    .leased-card img{width:100%;height:240px;object-fit:cover}
+    .leased-body{padding:20px}
+    .badge{display:inline-block;background:#eef6ff;color:var(--primary);padding:8px 12px;border-radius:999px;font-size:.82rem;font-weight:800;margin-bottom:12px}
+    .leased-body h3{font-size:1.3rem;color:#111827;margin-bottom:8px}
     .leased-body p{color:var(--muted)}
-
-    footer{
-      background:var(--primary);
-      color:#fff;
-      padding:28px 0;
-      margin-top:30px;
-    }
-
-    .footer-wrap{
-      display:flex;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    @media (max-width: 1024px){
-      .cards-grid{grid-template-columns:1fr 1fr}
-    }
-
-    @media (max-width: 768px){
+    footer{background:#fff;border-top:1px solid var(--border);margin-top:40px}
+    .footer-wrap{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    .footer-wrap p{color:var(--muted)}
+    @media (max-width:1080px){.property-grid{grid-template-columns:1fr 1fr}}
+    @media (max-width:768px){
       .menu-toggle{display:block}
-      .nav-links{
-        position:absolute;
-        top:79px; left:0; right:0;
-        background:#fff;
-        border-bottom:1px solid var(--border);
-        display:none;
-        flex-direction:column;
-        align-items:flex-start;
-        padding:20px 4%;
-      }
+      .nav-links{position:absolute;top:85px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);display:none;flex-direction:column;align-items:flex-start;padding:20px 4%}
       .nav-links.active{display:flex}
-      .cards-grid{grid-template-columns:1fr}
-      .leased-title{flex-direction:column;align-items:flex-start}
+      .property-grid{grid-template-columns:1fr}
+      .brand img{height:46px}
+      .brand-text{font-size:1rem}
     }
   </style>
 </head>
 <body>
-
 <header>
   <div class="container nav">
-    <a href="index.html" class="logo">MY <span>Property</span> Solutions</a>
+    <a href="index.html" class="brand">
+      <img src="images/logo.jpg" alt="MY Property Solutions logo">
+      <span class="brand-text">MY Property Solutions</span>
+    </a>
     <button class="menu-toggle" id="menuToggle">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
@@ -206,83 +72,64 @@
 <section class="page-hero">
   <div class="container">
     <h1>Leased Properties</h1>
-    <p>
-      Showcase your rental success with one featured image per leased home. This page is ready for many more listings.
-    </p>
+    <p>Take a look at recently leased homes across our service area.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Recently Leased</h2>
-    <p class="section-subtitle">
-      Copy and paste these cards to add more leased properties anytime.
-    </p>
-
-    <div class="cards-grid">
+    <div class="property-grid">
       <article class="leased-card">
-        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80" alt="Leased property in Conowingo, Maryland">
+        <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80" alt="Conowingo, Maryland">
         <div class="leased-body">
-          <div class="leased-title">
-            <h3>Conowingo, Maryland</h3>
-            <span class="badge">Leased</span>
-          </div>
-          <p>Recently leased single-family home with strong applicant interest and a fast turnaround.</p>
+          <span class="badge">Leased</span>
+          <h3>Conowingo, Maryland</h3>
+          <p>Single-family home leased with strong applicant interest and a fast turnaround.</p>
         </div>
       </article>
 
       <article class="leased-card">
-        <img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=1200&q=80" alt="Leased property in Elkton, Maryland">
+        <img src="https://images.unsplash.com/photo-1576941089067-2de3c901e126?auto=format&fit=crop&w=1200&q=80" alt="Elkton, Maryland">
         <div class="leased-body">
-          <div class="leased-title">
-            <h3>Elkton, Maryland</h3>
-            <span class="badge">Leased</span>
-          </div>
-          <p>Clean and modern rental home successfully leased after professional marketing and screening.</p>
+          <span class="badge">Leased</span>
+          <h3>Elkton, Maryland</h3>
+          <p>Modern rental home leased after professional marketing and tenant screening.</p>
         </div>
       </article>
 
       <article class="leased-card">
-        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80" alt="Leased property in North East, Maryland">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80" alt="North East, Maryland">
         <div class="leased-body">
-          <div class="leased-title">
-            <h3>North East, Maryland</h3>
-            <span class="badge">Leased</span>
-          </div>
-          <p>Another successfully leased property showcasing strong local demand and responsive management.</p>
+          <span class="badge">Leased</span>
+          <h3>North East, Maryland</h3>
+          <p>Well-positioned listing with strong local demand and responsive management.</p>
         </div>
       </article>
 
       <article class="leased-card">
-        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1200&q=80" alt="Leased property in Perryville, Maryland">
+        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?auto=format&fit=crop&w=1200&q=80" alt="Perryville, Maryland">
         <div class="leased-body">
-          <div class="leased-title">
-            <h3>Perryville, Maryland</h3>
-            <span class="badge">Leased</span>
-          </div>
-          <p>Well-presented rental property leased quickly with quality tenant placement.</p>
+          <span class="badge">Leased</span>
+          <h3>Perryville, Maryland</h3>
+          <p>Rental property leased quickly with quality tenant placement.</p>
         </div>
       </article>
 
       <article class="leased-card">
-        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Leased property in Rising Sun, Maryland">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Rising Sun, Maryland">
         <div class="leased-body">
-          <div class="leased-title">
-            <h3>Rising Sun, Maryland</h3>
-            <span class="badge">Leased</span>
-          </div>
-          <p>Bright and spacious home leased after strong listing performance and fast response time.</p>
+          <span class="badge">Leased</span>
+          <h3>Rising Sun, Maryland</h3>
+          <p>Bright and spacious home leased after strong listing performance.</p>
         </div>
       </article>
 
       <article class="leased-card">
-        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Leased property in Havre de Grace, Maryland">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80" alt="Havre de Grace, Maryland">
         <div class="leased-body">
-          <div class="leased-title">
-            <h3>Havre de Grace, Maryland</h3>
-            <span class="badge">Leased</span>
-          </div>
-          <p>Another leased home that highlights successful local property marketing and tenant screening.</p>
+          <span class="badge">Leased</span>
+          <h3>Havre de Grace, Maryland</h3>
+          <p>Another leased home that highlights successful local marketing and screening.</p>
         </div>
       </article>
     </div>
@@ -292,21 +139,17 @@
 <footer>
   <div class="container footer-wrap">
     <div>
-      <h3>MY Property Solutions</h3>
+      <strong style="color:var(--primary);">MY Property Solutions</strong>
       <p>Your local property experts.</p>
     </div>
-    <p>© 2026 MY Property Solutions. All rights reserved.</p>
+    <p>© 2026 MY Property Solutions</p>
   </div>
 </footer>
 
 <script>
   const menuToggle = document.getElementById("menuToggle");
   const navLinks = document.getElementById("navLinks");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-  });
+  menuToggle.addEventListener("click", () => navLinks.classList.toggle("active"));
 </script>
-
 </body>
 </html>
