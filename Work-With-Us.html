@@ -483,6 +483,11 @@
             <span id="resultOngoing">$160.00</span>
           </div>
 
+           <div class="result-row">
+            <span>How Much Do I Keep Each Month</span>
+            <span id="resultProfit">$1840.00</span>
+          </div>
+
           <p class="calculator-note">
             Estimates are based on the pricing packages shown above.
           </p>
@@ -518,6 +523,7 @@
   const resultMonthly = document.getElementById("resultMonthly");
   const resultFirstMonth = document.getElementById("resultFirstMonth");
   const resultOngoing = document.getElementById("resultOngoing");
+  const resultProfit = document.getElementById("resultProfit");
 
   function formatCurrency(value) {
     return new Intl.NumberFormat("en-US", {
@@ -534,22 +540,27 @@
     let monthlyFee = 0;
     let firstMonthTotal = 0;
     let ongoingMonthly = 0;
+    let monthylprofit = 0;
 
     if (serviceType === "tenant-placement") {
       leasingFee = rent * 0.85;
       monthlyFee = 0;
       firstMonthTotal = leasingFee;
       ongoingMonthly = 0;
+      monthylprofit = "N/A"
     } else if (serviceType === "full-service") {
       leasingFee = rent * 0.80;
       monthlyFee = rent * 0.08;
       firstMonthTotal = leasingFee + monthlyFee;
       ongoingMonthly = monthlyFee;
+      monthlyprofit = rent * 0.92;
+      
     } else if (serviceType === "management-only") {
       leasingFee = 0;
       monthlyFee = rent * 0.10;
       firstMonthTotal = monthlyFee;
       ongoingMonthly = monthlyFee;
+      monthlyprofit = rent * 0.90;
     }
 
     resultRent.textContent = formatCurrency(rent);
@@ -557,6 +568,7 @@
     resultMonthly.textContent = formatCurrency(monthlyFee);
     resultFirstMonth.textContent = formatCurrency(firstMonthTotal);
     resultOngoing.textContent = formatCurrency(ongoingMonthly);
+    resultProfit.textContent = formatCurrency(monthlyprofit);
   }
 
   monthlyRentInput.addEventListener("input", updateCalculator);
