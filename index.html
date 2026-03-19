@@ -19,8 +19,9 @@
       --radius:18px;
       --max-width:1240px;
     }
-images/logo.jpg
+
     *{box-sizing:border-box;margin:0;padding:0}
+
     body{
       font-family:Arial,Helvetica,sans-serif;
       background:var(--bg);
@@ -93,6 +94,7 @@ images/logo.jpg
       align-items:center;
       justify-content:space-between;
       gap:20px;
+      position:relative;
     }
 
     .brand{
@@ -451,6 +453,7 @@ images/logo.jpg
         flex-direction:column;
         align-items:flex-start;
         padding:20px 4%;
+        box-shadow:0 10px 24px rgba(0,0,0,.08);
       }
 
       .nav-links.active{
@@ -493,113 +496,240 @@ images/logo.jpg
 </head>
 <body>
 
-<header>
-  <div class="container nav">
-    <a href="index.html" class="brand">
-      <img src="images/logo.jpg" alt="MY Property Solutions logo">
-      <span class="brand-text">MY Property Solutions</span>
-    </a>
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="images/logo.jpg" alt="MY Property Solutions logo">
+        <span class="brand-text">MY Property Solutions</span>
+      </a>
 
-    <button class="menu-toggle" id="menuToggle">☰</button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
 
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="available-properties.html">Available Properties</a></li>
-      <li><a href="leased-properties.html">Leased Properties</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container hero-content">
-    <h1>Find your next home with confidence</h1>
-    <p>Browse available rentals, explore recently leased homes, and connect with a local team that knows the market.</p>
-
-    <div class="search-card">
-      <div class="search-row">
-        <input class="search-field" type="text" placeholder="City, neighborhood, or address">
-        <select class="search-field">
-          <option>Property Type</option>
-          <option>House</option>
-          <option>Townhome</option>
-          <option>Apartment</option>
-        </select>
-        <select class="search-field">
-          <option>Price Range</option>
-          <option>Under $1,500</option>
-          <option>$1,500 - $2,000</option>
-          <option>$2,000 - $2,500</option>
-          <option>$2,500+</option>
-        </select>
-        <a href="available-properties.html" class="btn btn-primary">Search</a>
-      </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="available-properties.html">Available Properties</a></li>
+        <li><a href="leased-properties.html">Leased Properties</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </div>
+  </header>
 
-    <div class="quick-links">
-      <a href="available-properties.html">Available Rentals</a>
-      <a href="leased-properties.html">Recently Leased</a>
-      <a href="contact.html">Schedule a Showing</a>
-    </div>
-  </div>
-</section>
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Find your next home with confidence</h1>
+      <p>Browse available rentals, explore recently leased homes, and connect with a local team that knows the market.</p>
 
-<section class="stats-wrap">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-card">
-        <h3>13</h3>
-        <p>Homes Managed</p>
-      </div>
-      <div class="stat-card">
-        <h3>19</h3>
-        <p>Leased Properties in the Prior 6 Months</p>
-      </div>
-      <div class="stat-card">
-        <h3>9.8</h3>
-        <p>Average Days on Market</p>
-      </div>
-      <div class="stat-card">
-        <h3>Local</h3>
-        <p>Market Knowledge</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <h2 class="section-title">Featured homes</h2>
-        <p class="section-subtitle">Browse current listings with photos, pricing, and key details.</p>
-      </div>
-      <a href="available-properties.html" class="btn btn-light">View All Properties</a>
-    </div>
-
-    <div class="property-grid">
-      <article class="property-card">
-        <div class="property-image-wrap">
-          <img src="797 Elk Mills B/1.jpg?auto=format&fit=crop&w=1200&q=80" alt="797 Elk Mills Rd, Elk Mills, MD">
-          <span class="property-tag">Available Now</span>
+      <div class="search-card">
+        <div class="search-row">
+          <input class="search-field" type="text" placeholder="City, neighborhood, or address">
+          <select class="search-field">
+            <option>Property Type</option>
+            <option>House</option>
+            <option>Townhome</option>
+            <option>Apartment</option>
+          </select>
+          <select class="search-field">
+            <option>Price Range</option>
+            <option>Under $1,500</option>
+            <option>$1,500 - $2,000</option>
+            <option>$2,000 - $2,500</option>
+            <option>$2,500+</option>
+          </select>
+          <a href="available-properties.html" class="btn btn-primary">Search</a>
         </div>
-        <div class="property-body">
-          <div class="property-price">$1,800/mo</div>
-          <div class="property-meta">
-            <span>2 bd</span>
-            <span>1 ba</span>
-            <span>1,000 sqft</span>
-          </div>
-          <div class="property-address">797 Elk Mills Rd, Elk Mills, MD</div>
-          <p class="property-desc">ALL UTILITIES INCLUDED! Upper level apartment with updated interior, spacious yard, bright living areas, and convenient access to local routes.</p>
-          <div class="property-actions">
-             <div class="property-actions">
-          <a href="<a href="https://www.zillow.com/homedetails/797-Elk-Mills-Rd-B-Elk-Mills-MD-21920/460460645_zpid/.com" 
-   class="btn btn-primary" 
-   target="_blank">
-   View on Zillow
-</a>
-                <a href="contact.html" class="btn btn-light">Schedule Tour</a>
-          </div>
+      </div>
+
+      <div class="quick-links">
+        <a href="available-properties.html">Available Rentals</a>
+        <a href="leased-properties.html">Recently Leased</a>
+        <a href="contact.html">Schedule a Showing</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-wrap">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>13</h3>
+          <p>Homes Managed</p>
         </div>
-      </article>
+        <div class="stat-card">
+          <h3>19</h3>
+          <p>Leased Properties in the Prior 6 Months</p>
+        </div>
+        <div class="stat-card">
+          <h3>9.8</h3>
+          <p>Average Days on Market</p>
+        </div>
+        <div class="stat-card">
+          <h3>Local</h3>
+          <p>Market Knowledge</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Featured homes</h2>
+          <p class="section-subtitle">Browse current listings with photos, pricing, and key details.</p>
+        </div>
+        <a href="available-properties.html" class="btn btn-light">View All Properties</a>
+      </div>
+
+      <div class="property-grid">
+        <article class="property-card">
+          <div class="property-image-wrap">
+            <img src="797 Elk Mills B/1.jpg" alt="797 Elk Mills Rd, Elk Mills, MD">
+            <span class="property-tag">Available Now</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$1,800/mo</div>
+            <div class="property-meta">
+              <span>2 bd</span>
+              <span>1 ba</span>
+              <span>1,000 sqft</span>
+            </div>
+            <div class="property-address">797 Elk Mills Rd, Elk Mills, MD</div>
+            <p class="property-desc">
+              ALL UTILITIES INCLUDED! Upper level apartment with updated interior, spacious yard, bright living areas, and convenient access to local routes.
+            </p>
+            <div class="property-actions">
+              <a href="https://www.zillow.com/homedetails/797-Elk-Mills-Rd-B-Elk-Mills-MD-21920/460460645_zpid/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                View on Zillow
+              </a>
+              <a href="contact.html" class="btn btn-light">Schedule Tour</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-image-wrap">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Sample property interior">
+            <span class="property-tag">Coming Soon</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$2,150/mo</div>
+            <div class="property-meta">
+              <span>3 bd</span>
+              <span>2 ba</span>
+              <span>1,450 sqft</span>
+            </div>
+            <div class="property-address">Newark, DE</div>
+            <p class="property-desc">
+              Spacious rental with modern finishes, off-street parking, and easy access to shopping, dining, and commuter routes.
+            </p>
+            <div class="property-actions">
+              <a href="available-properties.html" class="btn btn-primary">Learn More</a>
+              <a href="contact.html" class="btn btn-light">Schedule Tour</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-image-wrap">
+            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80" alt="Front exterior of rental home">
+            <span class="property-tag">Recently Listed</span>
+          </div>
+          <div class="property-body">
+            <div class="property-price">$2,400/mo</div>
+            <div class="property-meta">
+              <span>4 bd</span>
+              <span>2.5 ba</span>
+              <span>1,900 sqft</span>
+            </div>
+            <div class="property-address">Elkton, MD</div>
+            <p class="property-desc">
+              Bright and comfortable home with a large backyard, generous living spaces, and a convenient neighborhood location.
+            </p>
+            <div class="property-actions">
+              <a href="available-properties.html" class="btn btn-primary">Learn More</a>
+              <a href="contact.html" class="btn btn-light">Schedule Tour</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Browse with confidence</h2>
+          <p class="section-subtitle">We make it easy to explore local rental options and take the next step.</p>
+        </div>
+      </div>
+
+      <div class="browse-grid">
+        <div class="browse-card">
+          <h3>Available Rentals</h3>
+          <p>See active listings with pricing, details, and photos so you can compare your options quickly.</p>
+          <a href="available-properties.html" class="btn btn-light">Browse Listings</a>
+        </div>
+
+        <div class="browse-card">
+          <h3>Recently Leased Homes</h3>
+          <p>View recently leased properties to get a feel for the local rental market and recent activity.</p>
+          <a href="leased-properties.html" class="btn btn-light">View Leased Homes</a>
+        </div>
+
+        <div class="browse-card">
+          <h3>Schedule a Tour</h3>
+          <p>Ready to see a property in person? Reach out and we’ll help coordinate your next showing.</p>
+          <a href="contact.html" class="btn btn-light">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h2>Need help finding the right rental?</h2>
+          <p>
+            Connect with MY Property Solutions to ask questions, schedule tours, and stay updated on homes that match what you're looking for.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a href="available-properties.html" class="btn btn-light">View Properties</a>
+          <a href="contact.html" class="btn btn-primary">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-wrap">
+      <p>&copy; 2026 MY Property Solutions. All rights reserved.</p>
+      <p>Serving local renters with responsive property support.</p>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+
+      const isExpanded = navLinks.classList.contains("active");
+      menuToggle.setAttribute("aria-expanded", isExpanded);
+      menuToggle.textContent = isExpanded ? "✕" : "☰";
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+  </script>
+
+</body>
+</html>
