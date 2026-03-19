@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MY Property Solutions | Home</title>
-
+  <title>Work With Us | MY Property Solutions</title>
+  <meta name="description" content="Property management services and pricing for landlords." />
   <style>
     :root{
       --bg:#f5f7fb;
@@ -51,11 +51,11 @@
       width:auto;
     }
 
-    /* FIX: added company name styling */
     .brand-text{
       font-size:1.2rem;
       font-weight:800;
       color:#111827;
+      line-height:1;
     }
 
     .nav-links{
@@ -92,8 +92,33 @@
       text-align:center;
     }
 
+    .page-hero h1{
+      font-size:clamp(2.4rem,5vw,4rem);
+      margin-bottom:10px;
+    }
+
+    .page-hero p{
+      max-width:700px;
+      margin:0 auto;
+      color:rgba(255,255,255,.9);
+    }
+
     .section{
       padding:60px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:2.2rem;
+      margin-bottom:10px;
+      color:#111827;
+    }
+
+    .section-subtitle{
+      text-align:center;
+      color:var(--muted);
+      max-width:700px;
+      margin:0 auto 40px;
     }
 
     .pricing-grid{
@@ -112,9 +137,25 @@
       text-align:center;
     }
 
+    .pricing-card h3{
+      color:var(--primary);
+      margin-bottom:15px;
+      font-size:1.4rem;
+    }
+
     .price{
       font-size:1.6rem;
       font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .pricing-card p{
+      color:var(--muted);
+    }
+
+    .highlight{
+      border:2px solid var(--primary);
+      transform:scale(1.03);
     }
 
     .benefits{
@@ -132,6 +173,15 @@
       box-shadow:var(--shadow);
     }
 
+    .benefit h4{
+      color:var(--primary);
+      margin-bottom:6px;
+    }
+
+    .benefit p{
+      color:var(--muted);
+    }
+
     .calculator-card{
       margin-top:50px;
       background:#fff;
@@ -141,29 +191,96 @@
       box-shadow:var(--shadow);
     }
 
+    .calculator-card h2{
+      font-size:2rem;
+      margin-bottom:10px;
+      color:#111827;
+      text-align:center;
+    }
+
+    .calculator-card p{
+      color:var(--muted);
+      text-align:center;
+      max-width:700px;
+      margin:0 auto 28px;
+    }
+
     .calculator-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:24px;
+      align-items:start;
     }
 
-    input, select{
+    .form-grid{
+      display:grid;
+      gap:16px;
+    }
+
+    label{
+      font-weight:700;
+      color:#374151;
+      margin-bottom:6px;
+      display:block;
+    }
+
+    input,
+    select{
       width:100%;
       border:1px solid #d6dae0;
+      background:#fff;
       border-radius:12px;
-      padding:14px;
+      padding:14px 15px;
+      font:inherit;
+      color:var(--text);
+      outline:none;
+    }
+
+    input:focus,
+    select:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(15,94,168,.12);
     }
 
     .calc-results{
       background:#f8fbff;
+      border:1px solid #dce9f7;
       border-radius:18px;
       padding:24px;
+    }
+
+    .calc-results h3{
+      color:var(--primary);
+      margin-bottom:16px;
+      font-size:1.35rem;
     }
 
     .result-row{
       display:flex;
       justify-content:space-between;
-      padding:10px 0;
+      gap:20px;
+      padding:12px 0;
+      border-bottom:1px solid #e6eef8;
+    }
+
+    .result-row:last-child{
+      border-bottom:none;
+    }
+
+    .result-row span:first-child{
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .result-row span:last-child{
+      font-weight:800;
+      color:#111827;
+    }
+
+    .calculator-note{
+      margin-top:16px;
+      color:var(--muted);
+      font-size:.95rem;
     }
 
     .cta{
@@ -175,133 +292,285 @@
       margin-top:50px;
     }
 
+    .cta h2{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .cta p{
+      margin-bottom:20px;
+      color:rgba(255,255,255,.9);
+    }
+
     .btn{
+      display:inline-block;
+      padding:14px 24px;
+      border-radius:12px;
+      font-weight:700;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-light{
       background:#fff;
       color:var(--primary);
-      padding:12px 24px;
-      border-radius:12px;
-      display:inline-block;
     }
 
-    @media (max-width:900px){
-      .pricing-grid,.benefits,.calculator-grid{grid-template-columns:1fr}
+    footer{
+      background:#fff;
+      border-top:1px solid var(--border);
+      margin-top:40px;
+      padding:20px 0;
+      text-align:center;
+      color:var(--muted);
     }
 
-    @media (max-width:768px){
-      .brand img{height:58px}
+    @media (max-width: 900px){
+      .pricing-grid,
+      .benefits,
+      .calculator-grid{
+        grid-template-columns:1fr;
+      }
+
+      .highlight{
+        transform:none;
+      }
+    }
+
+    @media (max-width: 768px){
+      .menu-toggle{
+        display:block;
+      }
+
+      .nav-links{
+        position:absolute;
+        top:85px;
+        left:0;
+        right:0;
+        background:#fff;
+        border-bottom:1px solid var(--border);
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px 4%;
+      }
+
+      .nav-links.active{
+        display:flex;
+      }
+
+      .brand img{
+        height:58px;
+      }
     }
   </style>
 </head>
-
 <body>
 
 <header>
   <div class="container nav">
     <a href="index.html" class="brand">
       <img src="images/logo.jpg" alt="MY Property Solutions logo">
-      <!-- FIX: added company name -->
       <span class="brand-text">MY Property Solutions</span>
     </a>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="available-properties.html">Available</a></li>
+      <li><a href="leased-properties.html">Leased</a></li>
+      <li><a href="work-with-us.html">Work With Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
   </div>
 </header>
 
 <section class="page-hero">
-  <h1>Work With Us</h1>
+  <div class="container">
+    <h1>Work With Us</h1>
+    <p>Professional property management with transparent pricing and no surprises.</p>
+  </div>
 </section>
 
 <section class="section">
-<div class="container">
+  <div class="container">
+    <h2 class="section-title">Pricing Packages</h2>
+    <p class="section-subtitle">
+      Straightforward pricing designed to protect your investment and keep everything clear.
+    </p>
 
-<div class="pricing-grid">
-  <div class="pricing-card">
-    <h3>Tenant Placement Only</h3>
-    <div class="price">85%</div>
-  </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Tenant Placement Only</h3>
+        <div class="price">85% First Month’s Rent</div>
+        <p>Marketing, showings, screening, and lease execution.</p>
+      </div>
 
-  <div class="pricing-card">
-    <h3>Full-Service</h3>
-    <div class="price">80% + 8%</div>
-  </div>
+      <div class="pricing-card highlight">
+        <h3>Full-Service Management</h3>
+        <div class="price">80% First Month’s Rent + 8% Monthly</div>
+        <p>Leasing, management, maintenance coordination, and tenant communication.</p>
+      </div>
 
-  <div class="pricing-card">
-    <h3>Management Only</h3>
-    <div class="price">10%</div>
-  </div>
-</div>
-
-<div class="benefits">
-  <div class="benefit"><strong>No Hidden Fees</strong></div>
-  <div class="benefit"><strong>No Repair Markups</strong></div>
-</div>
-
-<div class="calculator-card">
-  <h2>Calculator</h2>
-
-  <div class="calculator-grid">
-    <div>
-      <input type="number" id="rent" value="2000">
-      <select id="service">
-        <option value="tenant">Tenant Placement</option>
-        <option value="full">Full Service</option>
-        <option value="management">Management Only</option>
-      </select>
+      <div class="pricing-card">
+        <h3>Property Management Only</h3>
+        <div class="price">10% Monthly Rent</div>
+        <p>For landlords who already have a tenant in place and need ongoing management.</p>
+      </div>
     </div>
 
-    <div class="calc-results">
-      <div class="result-row"><span>Leasing Fee</span><span id="leasing"></span></div>
-      <div class="result-row"><span>Monthly Fee</span><span id="monthly"></span></div>
+    <div class="benefits">
+      <div class="benefit">
+        <h4>No Hidden Fees</h4>
+        <p>What you see is what you pay. No surprise charges or unexpected costs.</p>
+      </div>
 
-      <!-- FIX: added these -->
-      <div class="result-row"><span>You Keep (First Month)</span><span id="keepFirst"></span></div>
-      <div class="result-row"><span>You Keep (Monthly)</span><span id="keepMonthly"></span></div>
+      <div class="benefit">
+        <h4>No Markups on Repairs</h4>
+        <p>We do not add any markup to maintenance or repair work. You pay the true cost.</p>
+      </div>
 
+      <div class="benefit">
+        <h4>Quality Tenant Screening</h4>
+        <p>Every application is screened carefully to help protect your property.</p>
+      </div>
+
+      <div class="benefit">
+        <h4>Responsive Service</h4>
+        <p>We stay on top of communication, leasing, and day-to-day management needs.</p>
+      </div>
+    </div>
+
+    <div class="calculator-card">
+      <h2>Management Fee Calculator</h2>
+      <p>Estimate your fees based on rent amount and service type.</p>
+
+      <div class="calculator-grid">
+        <div class="form-grid">
+          <div>
+            <label for="monthlyRent">Monthly Rent</label>
+            <input type="number" id="monthlyRent" placeholder="Enter monthly rent" value="2000" min="0" step="1">
+          </div>
+
+          <div>
+            <label for="serviceType">Service Type</label>
+            <select id="serviceType">
+              <option value="tenant-placement">Tenant Placement Only</option>
+              <option value="full-service" selected>Full-Service Management</option>
+              <option value="management-only">Property Management Only</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-results">
+          <h3>Estimated Fees</h3>
+
+          <div class="result-row">
+            <span>Monthly Rent</span>
+            <span id="resultRent">$2,000.00</span>
+          </div>
+
+          <div class="result-row">
+            <span>Leasing Fee</span>
+            <span id="resultLeasing">$1,600.00</span>
+          </div>
+
+          <div class="result-row">
+            <span>Monthly Management Fee</span>
+            <span id="resultMonthly">$160.00</span>
+          </div>
+
+          <div class="result-row">
+            <span>First Month Total</span>
+            <span id="resultFirstMonth">$1,760.00</span>
+          </div>
+
+          <div class="result-row">
+            <span>Ongoing Monthly Fee</span>
+            <span id="resultOngoing">$160.00</span>
+          </div>
+
+          <p class="calculator-note">
+            Estimates are based on the pricing packages shown above.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>Ready to get started?</h2>
+      <p>Contact us today to talk about your property and the management option that fits your needs.</p>
+      <a href="contact.html" class="btn btn-light">Get Started</a>
     </div>
   </div>
-</div>
-
-<div class="cta">
-  <h2>Ready to get started?</h2>
-  <a href="contact.html" class="btn">Contact</a>
-</div>
-
-</div>
 </section>
 
+<footer>
+  <p>© 2026 MY Property Solutions</p>
+</footer>
+
 <script>
-function calc(){
-  let rent = parseFloat(document.getElementById("rent").value) || 0;
-  let service = document.getElementById("service").value;
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
 
-  let leasing=0, monthly=0, keepFirst=0, keepMonthly=0;
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
 
-  if(service==="tenant"){
-    leasing=rent*0.85;
-    keepFirst=rent-leasing;
-    keepMonthly=rent;
+  const monthlyRentInput = document.getElementById("monthlyRent");
+  const serviceTypeSelect = document.getElementById("serviceType");
+
+  const resultRent = document.getElementById("resultRent");
+  const resultLeasing = document.getElementById("resultLeasing");
+  const resultMonthly = document.getElementById("resultMonthly");
+  const resultFirstMonth = document.getElementById("resultFirstMonth");
+  const resultOngoing = document.getElementById("resultOngoing");
+
+  function formatCurrency(value) {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD"
+    }).format(value);
   }
 
-  if(service==="full"){
-    leasing=rent*0.80;
-    monthly=rent*0.08;
-    keepFirst=rent-(leasing+monthly);
-    keepMonthly=rent-monthly;
+  function updateCalculator() {
+    const rent = parseFloat(monthlyRentInput.value) || 0;
+    const serviceType = serviceTypeSelect.value;
+
+    let leasingFee = 0;
+    let monthlyFee = 0;
+    let firstMonthTotal = 0;
+    let ongoingMonthly = 0;
+
+    if (serviceType === "tenant-placement") {
+      leasingFee = rent * 0.85;
+      monthlyFee = 0;
+      firstMonthTotal = leasingFee;
+      ongoingMonthly = 0;
+    } else if (serviceType === "full-service") {
+      leasingFee = rent * 0.80;
+      monthlyFee = rent * 0.08;
+      firstMonthTotal = leasingFee + monthlyFee;
+      ongoingMonthly = monthlyFee;
+    } else if (serviceType === "management-only") {
+      leasingFee = 0;
+      monthlyFee = rent * 0.10;
+      firstMonthTotal = monthlyFee;
+      ongoingMonthly = monthlyFee;
+    }
+
+    resultRent.textContent = formatCurrency(rent);
+    resultLeasing.textContent = formatCurrency(leasingFee);
+    resultMonthly.textContent = formatCurrency(monthlyFee);
+    resultFirstMonth.textContent = formatCurrency(firstMonthTotal);
+    resultOngoing.textContent = formatCurrency(ongoingMonthly);
   }
 
-  if(service==="management"){
-    monthly=rent*0.10;
-    keepFirst=rent-monthly;
-    keepMonthly=rent-monthly;
-  }
+  monthlyRentInput.addEventListener("input", updateCalculator);
+  serviceTypeSelect.addEventListener("change", updateCalculator);
 
-  document.getElementById("leasing").innerText="$"+leasing.toFixed(0);
-  document.getElementById("monthly").innerText="$"+monthly.toFixed(0);
-  document.getElementById("keepFirst").innerText="$"+keepFirst.toFixed(0);
-  document.getElementById("keepMonthly").innerText="$"+keepMonthly.toFixed(0);
-}
-
-document.getElementById("rent").addEventListener("input",calc);
-document.getElementById("service").addEventListener("change",calc);
-calc();
+  updateCalculator();
 </script>
 
 </body>
