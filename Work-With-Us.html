@@ -1,141 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Work With Us | MY Property Solutions</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MY Property Solutions | Home</title>
 
-<style>
-:root{
-  --bg:#f5f7fb;
-  --text:#1f2937;
-  --muted:#6b7280;
-  --primary:#0f5ea8;
-  --primary-dark:#0b4a86;
-  --border:#e5e7eb;
-  --shadow:0 10px 30px rgba(15,23,42,.08);
-  --radius:18px;
-  --max-width:1200px;
-}
+  <style>
+    :root{
+      --bg:#f5f7fb;
+      --white:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --primary:#0f5ea8;
+      --primary-dark:#0b4a86;
+      --border:#e5e7eb;
+      --shadow:0 10px 30px rgba(15,23,42,.08);
+      --radius:18px;
+      --max-width:1200px;
+    }
 
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial;background:var(--bg);color:var(--text)}
-a{text-decoration:none;color:inherit}
-.container{width:min(94%,var(--max-width));margin:0 auto}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(94%,var(--max-width));margin:0 auto}
 
-/* HEADER */
-header{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000}
+    header{
+      background:#fff;
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
 
-.nav{
-  min-height:84px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
+    .nav{
+      min-height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
 
-.brand img{height:72px}
+    .brand img{
+      height:72px;
+      width:auto;
+    }
 
-.brand-text{
-  font-size:1.2rem;
-  font-weight:800;
-  color:#111827;
-}
+    /* FIX: added company name styling */
+    .brand-text{
+      font-size:1.2rem;
+      font-weight:800;
+      color:#111827;
+    }
 
-/* HERO */
-.page-hero{
-  background:linear-gradient(rgba(15,94,168,.85),rgba(15,94,168,.75)),
-  url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80") center/cover;
-  color:#fff;
-  padding:80px 0;
-  text-align:center;
-}
+    .nav-links{
+      list-style:none;
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
 
-.page-hero h1{font-size:2.8rem;margin-bottom:10px}
+    .nav-links a{
+      font-weight:600;
+      color:#374151;
+    }
 
-/* SECTION */
-.section{padding:60px 0}
-.section-title{text-align:center;font-size:2rem;margin-bottom:10px}
-.section-subtitle{text-align:center;color:var(--muted);margin-bottom:40px}
+    .nav-links a:hover{
+      color:var(--primary);
+    }
 
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.pricing-card{
-  background:#fff;
-  padding:25px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  text-align:center;
-}
-.price{font-size:1.6rem;font-weight:800}
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.8rem;
+      color:var(--primary);
+      cursor:pointer;
+    }
 
-/* BENEFITS */
-.benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:30px}
-.benefit{background:#fff;padding:20px;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .page-hero{
+      background:
+        linear-gradient(rgba(15,94,168,.85),rgba(15,94,168,.75)),
+        url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+      color:#fff;
+      padding:80px 0;
+      text-align:center;
+    }
 
-/* CALCULATOR */
-.calculator-card{
-  margin-top:50px;
-  background:#fff;
-  padding:30px;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-}
+    .section{
+      padding:60px 0;
+    }
 
-.calculator-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:30px;
-}
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-bottom:40px;
+    }
 
-input,select{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid var(--border);
-}
+    .pricing-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:30px;
+      box-shadow:var(--shadow);
+      text-align:center;
+    }
 
-.calc-results{
-  background:#f8fbff;
-  padding:20px;
-  border-radius:var(--radius);
-}
+    .price{
+      font-size:1.6rem;
+      font-weight:800;
+    }
 
-.result-row{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:10px;
-}
+    .benefits{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+      margin-top:20px;
+    }
 
-/* CTA */
-.cta{
-  margin-top:40px;
-  background:var(--primary);
-  color:#fff;
-  padding:30px;
-  border-radius:var(--radius);
-  text-align:center;
-}
+    .benefit{
+      background:#fff;
+      padding:20px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      box-shadow:var(--shadow);
+    }
 
-.btn{
-  background:#fff;
-  color:var(--primary);
-  padding:12px 20px;
-  display:inline-block;
-  border-radius:10px;
-  margin-top:10px;
-}
+    .calculator-card{
+      margin-top:50px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:32px;
+      box-shadow:var(--shadow);
+    }
 
-/* MOBILE */
-@media(max-width:900px){
-  .pricing-grid,.benefits,.calculator-grid{grid-template-columns:1fr}
-}
-</style>
+    .calculator-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    input, select{
+      width:100%;
+      border:1px solid #d6dae0;
+      border-radius:12px;
+      padding:14px;
+    }
+
+    .calc-results{
+      background:#f8fbff;
+      border-radius:18px;
+      padding:24px;
+    }
+
+    .result-row{
+      display:flex;
+      justify-content:space-between;
+      padding:10px 0;
+    }
+
+    .cta{
+      background:linear-gradient(135deg,#0f5ea8,#0b4a86);
+      color:#fff;
+      border-radius:24px;
+      padding:40px;
+      text-align:center;
+      margin-top:50px;
+    }
+
+    .btn{
+      background:#fff;
+      color:var(--primary);
+      padding:12px 24px;
+      border-radius:12px;
+      display:inline-block;
+    }
+
+    @media (max-width:900px){
+      .pricing-grid,.benefits,.calculator-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:768px){
+      .brand img{height:58px}
+    }
+  </style>
 </head>
 
 <body>
@@ -143,7 +198,8 @@ input,select{
 <header>
   <div class="container nav">
     <a href="index.html" class="brand">
-      <img src="images/logo.jpg" alt="logo">
+      <img src="images/logo.jpg" alt="MY Property Solutions logo">
+      <!-- FIX: added company name -->
       <span class="brand-text">MY Property Solutions</span>
     </a>
   </div>
@@ -151,67 +207,61 @@ input,select{
 
 <section class="page-hero">
   <h1>Work With Us</h1>
-  <p>Transparent property management with no hidden fees.</p>
 </section>
 
 <section class="section">
 <div class="container">
 
-<h2 class="section-title">Pricing</h2>
-<p class="section-subtitle">Simple and transparent</p>
-
 <div class="pricing-grid">
   <div class="pricing-card">
-    <h3>Tenant Placement</h3>
+    <h3>Tenant Placement Only</h3>
     <div class="price">85%</div>
-    <p>of first month rent</p>
   </div>
 
   <div class="pricing-card">
-    <h3>Full Service</h3>
+    <h3>Full-Service</h3>
     <div class="price">80% + 8%</div>
-    <p>first month + monthly</p>
   </div>
 
   <div class="pricing-card">
     <h3>Management Only</h3>
     <div class="price">10%</div>
-    <p>monthly rent</p>
   </div>
 </div>
 
 <div class="benefits">
-  <div class="benefit"><strong>No Hidden Fees</strong><p>No surprises ever</p></div>
-  <div class="benefit"><strong>No Repair Markups</strong><p>You pay true cost</p></div>
+  <div class="benefit"><strong>No Hidden Fees</strong></div>
+  <div class="benefit"><strong>No Repair Markups</strong></div>
 </div>
 
 <div class="calculator-card">
-  <h2>Fee Calculator</h2>
+  <h2>Calculator</h2>
 
   <div class="calculator-grid">
     <div>
-      <label>Monthly Rent</label>
       <input type="number" id="rent" value="2000">
-
-      <label>Service</label>
       <select id="service">
         <option value="tenant">Tenant Placement</option>
-        <option value="full" selected>Full Service</option>
+        <option value="full">Full Service</option>
         <option value="management">Management Only</option>
       </select>
     </div>
 
     <div class="calc-results">
-      <div class="result-row"><span>Leasing Fee</span><span id="leasing">$0</span></div>
-      <div class="result-row"><span>Monthly Fee</span><span id="monthly">$0</span></div>
-      <div class="result-row"><span>You Keep (Monthly)</span><span id="keep">$0</span></div>
+      <div class="result-row"><span>Leasing Fee</span><span id="leasing"></span></div>
+      <div class="result-row"><span>Monthly Fee</span><span id="monthly"></span></div>
+
+      <!-- FIX: added these -->
+      <div class="result-row"><span>You Keep (First Month)</span><span id="keepFirst"></span></div>
+      <div class="result-row"><span>You Keep (Monthly)</span><span id="keepMonthly"></span></div>
+
     </div>
   </div>
 </div>
 
 <div class="cta">
   <h2>Ready to get started?</h2>
-  <a href="contact.html" class="btn">Contact Us</a>
+  <a href="contact.html" class="btn">Contact</a>
 </div>
 
 </div>
@@ -222,22 +272,31 @@ function calc(){
   let rent = parseFloat(document.getElementById("rent").value) || 0;
   let service = document.getElementById("service").value;
 
-  let leasing=0, monthly=0;
+  let leasing=0, monthly=0, keepFirst=0, keepMonthly=0;
 
   if(service==="tenant"){
     leasing=rent*0.85;
+    keepFirst=rent-leasing;
+    keepMonthly=rent;
   }
+
   if(service==="full"){
     leasing=rent*0.80;
     monthly=rent*0.08;
+    keepFirst=rent-(leasing+monthly);
+    keepMonthly=rent-monthly;
   }
+
   if(service==="management"){
     monthly=rent*0.10;
+    keepFirst=rent-monthly;
+    keepMonthly=rent-monthly;
   }
 
   document.getElementById("leasing").innerText="$"+leasing.toFixed(0);
   document.getElementById("monthly").innerText="$"+monthly.toFixed(0);
-  document.getElementById("keep").innerText="$"+(rent-monthly).toFixed(0);
+  document.getElementById("keepFirst").innerText="$"+keepFirst.toFixed(0);
+  document.getElementById("keepMonthly").innerText="$"+keepMonthly.toFixed(0);
 }
 
 document.getElementById("rent").addEventListener("input",calc);
