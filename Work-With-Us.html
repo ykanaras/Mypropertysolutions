@@ -480,12 +480,7 @@
             <span>Monthly Management Fee</span>
             <span id="resultMonthly">$160.00</span>
           </div>
-
-          <div class="result-row">
-            <span>First Month Total</span>
-            <span id="resultFirstMonth">$1,760.00</span>
-          </div>
-
+          
           <div class="result-row">
             <span>Ongoing Monthly Fee</span>
             <span id="resultOngoing">$160.00</span>
@@ -524,7 +519,6 @@
   const resultRent = document.getElementById("resultRent");
   const resultLeasing = document.getElementById("resultLeasing");
   const resultMonthly = document.getElementById("resultMonthly");
-  const resultFirstMonth = document.getElementById("resultFirstMonth");
   const resultOngoing = document.getElementById("resultOngoing");
 
   function formatCurrency(value) {
@@ -540,30 +534,25 @@
 
     let leasingFee = 0;
     let monthlyFee = 0;
-    let firstMonthTotal = 0;
     let ongoingMonthly = 0;
 
     if (serviceType === "tenant-placement") {
       leasingFee = rent * 0.85;
-      monthlyFee = 0;
-      firstMonthTotal = leasingFee;
+      monthlyFee = 0
       ongoingMonthly = 0;
     } else if (serviceType === "full-service") {
       leasingFee = rent * 0.80;
       monthlyFee = rent * 0.08;
-      firstMonthTotal = leasingFee + monthlyFee;
       ongoingMonthly = monthlyFee;
     } else if (serviceType === "management-only") {
       leasingFee = 0;
       monthlyFee = rent * 0.10;
-      firstMonthTotal = monthlyFee;
       ongoingMonthly = monthlyFee;
     }
 
     resultRent.textContent = formatCurrency(rent);
     resultLeasing.textContent = formatCurrency(leasingFee);
     resultMonthly.textContent = formatCurrency(monthlyFee);
-    resultFirstMonth.textContent = formatCurrency(firstMonthTotal);
     resultOngoing.textContent = formatCurrency(ongoingMonthly);
   }
 
