@@ -3,8 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work With Us | MY Property Solutions</title>
-  <meta name="description" content="Local Property management in Cecil and Harford County Maryland, services and pricing for landlords." />
+
+  <title>Property Management Services in Cecil County & Harford County, MD | Work With Us | MY Property Solutions</title>
+  <meta name="description" content="Work with MY Property Solutions for property management services in Cecil County and Harford County, Maryland. View transparent pricing, management options, and landlord support from a local property management company." />
+  <meta name="keywords" content="property management Cecil County MD, property management Harford County MD, property management company Cecil County, property management company Harford County, landlord services Cecil County MD, landlord services Harford County MD, rental property management Maryland, full service property management Cecil County, full service property management Harford County" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="MY Property Solutions" />
+  <meta name="geo.region" content="US-MD" />
+  <meta name="geo.placename" content="Cecil County, Harford County, Maryland" />
+  <link rel="canonical" href="https://mypropertysolutionsmd.com/work-with-us.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Property Management Services in Cecil County & Harford County, MD | MY Property Solutions" />
+  <meta property="og:description" content="Transparent property management pricing and landlord services in Cecil County and Harford County, Maryland." />
+  <meta property="og:url" content="https://mypropertysolutionsmd.com/work-with-us.html" />
+  <meta property="og:site_name" content="MY Property Solutions" />
+  <meta property="og:image" content="https://mypropertysolutionsmd.com/images/logo.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Property Management Services in Cecil County & Harford County, MD | MY Property Solutions" />
+  <meta name="twitter:description" content="Transparent property management pricing and landlord services in Cecil County and Harford County, Maryland." />
+  <meta name="twitter:image" content="https://mypropertysolutionsmd.com/images/logo.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "MY Property Solutions",
+    "url": "https://mypropertysolutionsmd.com/",
+    "logo": "https://mypropertysolutionsmd.com/images/logo.jpg",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61578347535401"
+    ],
+    "areaServed": [
+      {
+        "@type": "AdministrativeArea",
+        "name": "Cecil County, Maryland"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Harford County, Maryland"
+      }
+    ],
+    "description": "MY Property Solutions is a local property management company serving Cecil County and Harford County, Maryland with leasing, landlord support, and full-service property management.",
+    "serviceType": [
+      "Tenant Placement",
+      "Full-Service Property Management",
+      "Property Management Only"
+    ]
+  }
+  </script>
+
   <style>
     :root{
       --bg:#f5f7fb;
@@ -14,15 +63,54 @@
       --primary:#0f5ea8;
       --primary-dark:#0b4a86;
       --border:#e5e7eb;
-      --shadow:0 10px 30px rgba(15,23,42,.08);
+      --shadow:0 10px 30px rgba(15,23,42,0.08);
+      --shadow-soft:0 4px 18px rgba(15,23,42,0.06);
       --radius:18px;
       --max-width:1200px;
     }
 
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
     a{text-decoration:none;color:inherit}
     .container{width:min(94%,var(--max-width));margin:0 auto}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      transition:.2s ease;
+      border:none;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .btn-primary:hover{
+      background:var(--primary-dark);
+    }
+
+    .btn-light{
+      background:#fff;
+      color:var(--primary);
+      border:1px solid var(--border);
+    }
+
+    .btn-light:hover{
+      background:#f8fafc;
+    }
 
     header{
       background:#fff;
@@ -38,6 +126,7 @@
       align-items:center;
       justify-content:space-between;
       gap:20px;
+      position:relative;
     }
 
     .brand{
@@ -85,7 +174,7 @@
 
     .page-hero{
       background:
-        linear-gradient(rgba(15,94,168,.85),rgba(15,94,168,.75)),
+        linear-gradient(rgba(15,94,168,0.85),rgba(15,94,168,0.75)),
         url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
       color:#fff;
       padding:80px 0;
@@ -94,13 +183,14 @@
 
     .page-hero h1{
       font-size:clamp(2.4rem,5vw,4rem);
-      margin-bottom:10px;
+      margin-bottom:12px;
     }
 
     .page-hero p{
-      max-width:700px;
+      max-width:760px;
       margin:0 auto;
-      color:rgba(255,255,255,.9);
+      color:rgba(255,255,255,0.92);
+      font-size:1.05rem;
     }
 
     .section{
@@ -112,41 +202,45 @@
       font-size:2.2rem;
       margin-bottom:10px;
       color:#111827;
+      line-height:1.15;
     }
 
     .section-subtitle{
       text-align:center;
+      max-width:760px;
+      margin:0 auto 34px;
       color:var(--muted);
-      max-width:700px;
-      margin:0 auto 40px;
     }
 
     .pricing-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:24px;
-      margin-bottom:40px;
+      margin-top:20px;
+      margin-bottom:34px;
     }
 
     .pricing-card{
       background:#fff;
       border:1px solid var(--border);
-      border-radius:var(--radius);
-      padding:30px;
-      box-shadow:var(--shadow);
+      border-radius:20px;
+      padding:30px 24px;
+      box-shadow:var(--shadow-soft);
       text-align:center;
     }
 
     .pricing-card h3{
-      color:var(--primary);
-      margin-bottom:15px;
-      font-size:1.4rem;
+      font-size:1.25rem;
+      margin-bottom:12px;
+      color:#111827;
     }
 
     .price{
-      font-size:1.6rem;
+      font-size:1.4rem;
       font-weight:800;
-      margin-bottom:10px;
+      color:var(--primary);
+      margin-bottom:12px;
+      line-height:1.3;
     }
 
     .pricing-card p{
@@ -154,55 +248,55 @@
     }
 
     .highlight{
+      transform:translateY(-6px);
       border:2px solid var(--primary);
-      transform:scale(1.03);
+      box-shadow:var(--shadow);
     }
 
     .benefits{
       display:grid;
-      grid-template-columns:repeat(2,1fr);
+      grid-template-columns:repeat(4,1fr);
       gap:20px;
-      margin-top:20px;
+      margin:24px 0 40px;
     }
 
     .benefit{
       background:#fff;
-      padding:20px;
-      border-radius:14px;
       border:1px solid var(--border);
-      box-shadow:var(--shadow);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:var(--shadow-soft);
     }
 
     .benefit h4{
-      color:var(--primary);
-      margin-bottom:6px;
+      margin-bottom:10px;
+      color:#111827;
+      font-size:1.05rem;
     }
 
     .benefit p{
       color:var(--muted);
+      font-size:0.98rem;
     }
 
     .calculator-card{
-      margin-top:50px;
       background:#fff;
       border:1px solid var(--border);
-      border-radius:24px;
+      border-radius:22px;
       padding:32px;
-      box-shadow:var(--shadow);
+      box-shadow:var(--shadow-soft);
+      margin-top:10px;
     }
 
     .calculator-card h2{
-      font-size:2rem;
       margin-bottom:10px;
       color:#111827;
-      text-align:center;
+      font-size:1.9rem;
     }
 
-    .calculator-card p{
+    .calculator-card > p{
       color:var(--muted);
-      text-align:center;
-      max-width:700px;
-      margin:0 auto 28px;
+      margin-bottom:24px;
     }
 
     .calculator-grid{
@@ -214,45 +308,36 @@
 
     .form-grid{
       display:grid;
-      gap:16px;
+      gap:18px;
     }
 
     label{
-      font-weight:700;
-      color:#374151;
-      margin-bottom:6px;
       display:block;
+      margin-bottom:8px;
+      font-weight:700;
+      color:#111827;
     }
 
-    input,
-    select{
+    input, select{
       width:100%;
-      border:1px solid #d6dae0;
-      background:#fff;
+      padding:14px 16px;
+      border:1px solid var(--border);
       border-radius:12px;
-      padding:14px 15px;
-      font:inherit;
+      font-size:1rem;
+      background:#fff;
       color:var(--text);
-      outline:none;
-    }
-
-    input:focus,
-    select:focus{
-      border-color:var(--primary);
-      box-shadow:0 0 0 3px rgba(15,94,168,.12);
     }
 
     .calc-results{
-      background:#f8fbff;
-      border:1px solid #dce9f7;
+      background:#f8fafc;
+      border:1px solid var(--border);
       border-radius:18px;
       padding:24px;
     }
 
     .calc-results h3{
-      color:var(--primary);
-      margin-bottom:16px;
-      font-size:1.35rem;
+      margin-bottom:18px;
+      color:#111827;
     }
 
     .result-row{
@@ -260,36 +345,95 @@
       justify-content:space-between;
       gap:20px;
       padding:12px 0;
-      border-bottom:1px solid #e6eef8;
+      border-bottom:1px solid var(--border);
     }
 
-    .result-row:last-child{
+    .result-row:last-of-type{
       border-bottom:none;
     }
 
-    .result-row span:first-child{
-      color:var(--muted);
-      font-weight:600;
-    }
-
-    .result-row span:last-child{
-      font-weight:800;
-      color:#111827;
-    }
-
     .calculator-note{
-      margin-top:16px;
+      margin-top:18px;
       color:var(--muted);
-      font-size:.95rem;
+      font-size:0.95rem;
+    }
+
+    .facebook-section{
+      padding-top:0;
+    }
+
+    .facebook-highlight{
+      display:grid;
+      grid-template-columns:1.4fr 0.8fr;
+      gap:24px;
+      align-items:stretch;
+    }
+
+    .facebook-copy,
+    .facebook-card{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:20px;
+      padding:32px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:12px;
+      color:var(--primary);
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      font-size:0.82rem;
+    }
+
+    .facebook-copy h2{
+      margin-bottom:12px;
+      color:#111827;
+      font-size:2rem;
+      line-height:1.15;
+    }
+
+    .facebook-copy p{
+      color:var(--muted);
+    }
+
+    .facebook-text{
+      margin-top:14px;
+      margin-bottom:20px;
+    }
+
+    .facebook-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:10px;
+    }
+
+    .facebook-card h3{
+      margin-bottom:14px;
+      color:#111827;
+      font-size:1.2rem;
+    }
+
+    .facebook-card ul{
+      padding-left:20px;
+      color:var(--muted);
+    }
+
+    .facebook-card li + li{
+      margin-top:10px;
     }
 
     .cta{
       background:linear-gradient(135deg,#0f5ea8,#0b4a86);
       color:#fff;
-      border-radius:24px;
-      padding:40px;
+      border-radius:22px;
+      padding:36px 28px;
       text-align:center;
-      margin-top:50px;
+      margin-top:40px;
+      box-shadow:var(--shadow);
     }
 
     .cta h2{
@@ -298,34 +442,38 @@
     }
 
     .cta p{
-      margin-bottom:20px;
-      color:rgba(255,255,255,.9);
-    }
-
-    .btn{
-      display:inline-block;
-      padding:14px 24px;
-      border-radius:12px;
-      font-weight:700;
-      border:none;
-      cursor:pointer;
-    }
-
-    .btn-light{
-      background:#fff;
-      color:var(--primary);
+      max-width:720px;
+      margin:0 auto 20px;
+      color:rgba(255,255,255,0.92);
     }
 
     footer{
       background:#fff;
       border-top:1px solid var(--border);
       margin-top:40px;
+    }
+
+    .footer-wrap{
+      min-height:84px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
       padding:20px 0;
-      text-align:center;
+    }
+
+    .footer-wrap p{
       color:var(--muted);
     }
 
-    @media (max-width: 900px){
+    @media (max-width:1080px){
+      .facebook-highlight{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width:900px){
       .pricing-grid,
       .benefits,
       .calculator-grid{
@@ -337,7 +485,7 @@
       }
     }
 
-    @media (max-width: 768px){
+    @media (max-width:768px){
       .menu-toggle{
         display:block;
       }
@@ -362,6 +510,16 @@
       .brand img{
         height:58px;
       }
+
+      .page-hero{
+        padding:70px 0;
+      }
+
+      .calculator-card,
+      .facebook-copy,
+      .facebook-card{
+        padding:24px;
+      }
     }
   </style>
 </head>
@@ -374,7 +532,7 @@
       <span class="brand-text">MY Property Solutions</span>
     </a>
 
-    <button class="menu-toggle" id="menuToggle">☰</button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">☰</button>
 
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
@@ -388,35 +546,35 @@
 
 <section class="page-hero">
   <div class="container">
-    <h1>Work With Us</h1>
-    <p>Professional property management with transparent pricing and no surprises.</p>
+    <h1>Property Management Services in Cecil County & Harford County, MD</h1>
+    <p>Work with a local property management company that offers transparent pricing, responsive service, and landlord support in Cecil County and Harford County, Maryland.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <h2 class="section-title">Pricing Packages</h2>
+    <h2 class="section-title">Property management pricing for landlords in Cecil County & Harford County</h2>
     <p class="section-subtitle">
-      Straightforward pricing designed to protect your investment and keep everything clear.
+      MY Property Solutions provides straightforward pricing designed to protect your investment and support property owners looking for dependable property management services in Cecil County and Harford County, Maryland.
     </p>
 
     <div class="pricing-grid">
       <div class="pricing-card">
         <h3>Tenant Placement Only</h3>
         <div class="price">85% First Month’s Rent</div>
-        <p>Marketing, showings, screening, and lease execution.</p>
+        <p>Marketing, showings, screening, and lease execution for owners who need help placing a qualified tenant.</p>
       </div>
 
       <div class="pricing-card highlight">
         <h3>Full-Service Management</h3>
         <div class="price">80% First Month’s Rent + 8% Monthly</div>
-        <p>Leasing, management, maintenance coordination, and tenant communication.</p>
+        <p>Leasing, management, maintenance coordination, and tenant communication for full-service property management support.</p>
       </div>
 
       <div class="pricing-card">
         <h3>Property Management Only</h3>
         <div class="price">10% Monthly Rent</div>
-        <p>For landlords who already have a tenant in place and need ongoing management.</p>
+        <p>For landlords who already have a tenant in place and need ongoing property management in Cecil County or Harford County.</p>
       </div>
     </div>
 
@@ -433,18 +591,18 @@
 
       <div class="benefit">
         <h4>Quality Tenant Screening</h4>
-        <p>Every application is screened carefully to help protect your property.</p>
+        <p>Every application is screened carefully to help protect your property and reduce leasing risk.</p>
       </div>
 
       <div class="benefit">
         <h4>Responsive Service</h4>
-        <p>We stay on top of communication, leasing, and day-to-day management needs.</p>
+        <p>We stay on top of communication, leasing, and day-to-day management needs for owners and tenants.</p>
       </div>
     </div>
 
     <div class="calculator-card">
-      <h2>Management Fee Calculator</h2>
-      <p>Estimate your fees based on rent amount and service type.</p>
+      <h2>Property Management Fee Calculator</h2>
+      <p>Estimate your fees based on monthly rent and service type. This gives Cecil County and Harford County property owners a quick look at expected management costs.</p>
 
       <div class="calculator-grid">
         <div class="form-grid">
@@ -480,8 +638,6 @@
             <span>Monthly Management Fee</span>
             <span id="resultMonthly">$160.00</span>
           </div>
-          
-
 
           <p class="calculator-note">
             Estimates are based on the pricing packages shown above.
@@ -489,17 +645,56 @@
         </div>
       </div>
     </div>
+  </div>
+</section>
 
+<section class="section facebook-section">
+  <div class="container">
+    <div class="facebook-highlight">
+      <div class="facebook-copy">
+        <p class="eyebrow">Connect With Us</p>
+        <h2>Follow MY Property Solutions on Facebook</h2>
+        <p>
+          Stay up to date on available rentals, recently leased properties, company updates, and local property management news in Cecil County and Harford County, Maryland.
+        </p>
+        <p class="facebook-text">
+          If you are looking for a trusted property management company in Cecil County or Harford County, our Facebook page is a great place to see rental highlights, property updates, and helpful information for owners and tenants.
+        </p>
+        <div class="facebook-actions">
+          <a href="https://www.facebook.com/profile.php?id=61578347535401" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+            Visit Our Facebook Page
+          </a>
+        </div>
+      </div>
+
+      <div class="facebook-card">
+        <h3>Why Follow Us?</h3>
+        <ul>
+          <li>New rental listings and property updates</li>
+          <li>Recently leased homes in Cecil County and Harford County</li>
+          <li>Local property tips and market insights</li>
+          <li>An easy way to stay connected with our team</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
     <div class="cta">
-      <h2>Ready to get started?</h2>
-      <p>Contact us today to talk about your property and the management option that fits your needs.</p>
+      <h2>Ready to work with a local property management company?</h2>
+      <p>Contact MY Property Solutions today to discuss your rental property and choose the property management option that fits your needs in Cecil County or Harford County, Maryland.</p>
       <a href="contact.html" class="btn btn-light">Get Started</a>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 MY Property Solutions</p>
+  <div class="container footer-wrap">
+    <p>© 2026 MY Property Solutions</p>
+    <p>Serving Cecil County and Harford County, Maryland with responsive property management and rental support.</p>
+  </div>
 </footer>
 
 <script>
@@ -508,6 +703,8 @@
 
   menuToggle.addEventListener("click", () => {
     navLinks.classList.toggle("active");
+    const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!expanded));
   });
 
   const monthlyRentInput = document.getElementById("monthlyRent");
@@ -533,7 +730,7 @@
 
     if (serviceType === "tenant-placement") {
       leasingFee = rent * 0.85;
-      monthlyFee = 0
+      monthlyFee = 0;
     } else if (serviceType === "full-service") {
       leasingFee = rent * 0.80;
       monthlyFee = rent * 0.08;
