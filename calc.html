@@ -39,11 +39,12 @@ footer{text-align:center;color:var(--muted);font-size:.78rem;padding:20px}
 </section>
 <section class="card"><div class="result"><div class="eyebrow">Estimated market rent</div><div class="price" id="estimate">$—</div><div class="range" id="range">Enter the property details and calculate.</div><div class="confidence" id="confidence">Waiting for property</div></div>
 <div class="metricgrid"><div class="metric"><b id="compCount">—</b><span>weighted comps</span></div><div class="metric"><b id="pps">—</b><span>estimated $ / sq ft</span></div><div class="metric"><b id="timeAdj">—</b><span>time adjustment</span></div></div>
-<p class="note" id="explain">The model gives the greatest weight to same-city and same-property-type rentals. Older records are increased using the annual rent-growth setting. Asking rents are included at lower weight than executed leases.</p>
+<p class="note" id="explain">The model gives the greatest weight to same-city and same-property-type rentals. Older records are increased using the annual rent-growth setting. MYPS asking rents and current public asking rents are included at lower weight than executed leases.</p>
 <div class="comps"><h3>Best matching comps</h3><div class="comp headrow"><span>Comparable</span><span>Rent</span><span>Today</span><span>Match</span></div><div id="compRows"></div></div>
-</section></div></main><footer>Internal pricing aid • Not linked in public navigation • MY Property Solutions</footer>
+</section></div></main><footer>Internal pricing aid • MYPS history + public market asking data • Not linked in public navigation • MY Property Solutions</footer>
 <script>
 const comps=[
+// Public-market asking comps refreshed 2026-09-27. These are deliberately lower-weight than MYPS executed rents.
 {name:"3 North Ct",city:"North East",county:"Cecil",type:"townhome",rent:1900,year:2026,beds:3,baths:1.5,sqft:1296,actual:true},
 {name:"233 Correri St",city:"Havre de Grace",county:"Harford",type:"townhome",rent:3275,year:2026,beds:4,baths:2.5,sqft:2313,actual:true},
 {name:"98 Windmill",city:"Conowingo",county:"Cecil",type:"sfh",rent:2975,year:2026,beds:null,baths:null,sqft:null,actual:true},
@@ -67,7 +68,22 @@ const comps=[
 {name:"Elk Mills apartment",city:"Elkton",county:"Cecil",type:"apartment",rent:1600,year:2026,beds:2,baths:1,sqft:1000,actual:false},
 {name:"Walnut Hill",city:"Elkton",county:"Cecil",type:"townhome",rent:2200,year:2026,beds:3,baths:1.5,sqft:1620,actual:false},
 {name:"Patriots Glen",city:"Elkton",county:"Cecil",type:"sfh",rent:3250,year:2026,beds:5,baths:3.5,sqft:3200,actual:false},
-{name:"111 Market St",city:"Charlestown",county:"Cecil",type:"sfh",rent:3300,year:2026,beds:3,baths:2.5,sqft:2584,actual:false}
+{name:"111 Market St",city:"Charlestown",county:"Cecil",type:"sfh",rent:3300,year:2026,beds:3,baths:2.5,sqft:2584,actual:false},
+{name:"5 Caribou Ct (public)",city:"Elkton",county:"Cecil",type:"townhome",rent:2100,year:2026,beds:3,baths:2.5,sqft:2000,actual:false,public:true},
+{name:"299 Fletchwood Rd (public)",city:"Elkton",county:"Cecil",type:"sfh",rent:2195,year:2026,beds:3,baths:1,sqft:1560,actual:false,public:true},
+{name:"112 Gray Mount Dr (public)",city:"Elkton",county:"Cecil",type:"sfh",rent:2200,year:2026,beds:3,baths:2,sqft:1600,actual:false,public:true},
+{name:"354 W Main St (public)",city:"Elkton",county:"Cecil",type:"sfh",rent:2100,year:2026,beds:3,baths:2.5,sqft:1900,actual:false,public:true},
+{name:"212 Patriots Way (public)",city:"Elkton",county:"Cecil",type:"sfh",rent:2800,year:2026,beds:5,baths:4,sqft:2584,actual:false,public:true},
+{name:"156 Thomas Jefferson Ter (public)",city:"Elkton",county:"Cecil",type:"sfh",rent:3500,year:2026,beds:5,baths:4,sqft:2264,actual:false,public:true},
+{name:"386 Old Bayview Rd (public)",city:"North East",county:"Cecil",type:"sfh",rent:2900,year:2026,beds:5,baths:2,sqft:3960,actual:false,public:true},
+{name:"34 Augusta Loop (public)",city:"North East",county:"Cecil",type:"sfh",rent:2850,year:2026,beds:4,baths:2.5,sqft:3124,actual:false,public:true},
+{name:"90 Pine Cone Dr (public)",city:"North East",county:"Cecil",type:"sfh",rent:2850,year:2026,beds:3,baths:3.5,sqft:1979,actual:false,public:true},
+{name:"211 Market St (public)",city:"Charlestown",county:"Cecil",type:"sfh",rent:3500,year:2026,beds:3,baths:2,sqft:1500,actual:false,public:true},
+{name:"130 Remington Cir (public)",city:"Havre de Grace",county:"Harford",type:"townhome",rent:2100,year:2026,beds:3,baths:1.5,sqft:1740,actual:false,public:true},
+{name:"167 Hokeland Dr (public)",city:"Havre de Grace",county:"Harford",type:"townhome",rent:2750,year:2026,beds:3,baths:3.5,sqft:3365,actual:false,public:true},
+{name:"232 Mohegan Dr (public)",city:"Havre de Grace",county:"Harford",type:"townhome",rent:3300,year:2026,beds:3,baths:2.5,sqft:3224,actual:false,public:true},
+{name:"563 Pennington Ave (public)",city:"Havre de Grace",county:"Harford",type:"sfh",rent:2300,year:2026,beds:3,baths:1,sqft:1330,actual:false,public:true},
+{name:"200 Smarty Jones Ter (public)",city:"Havre de Grace",county:"Harford",type:"sfh",rent:3600,year:2026,beds:3,baths:3,sqft:2990,actual:false,public:true}
 ];
 const countyOf=c=>["Havre de Grace","Belcamp","Abingdon","Bel Air","Joppa","Other Harford County"].includes(c)?"Harford":"Cecil";
 const money=n=>"$"+Math.round(n/25)*25 .toLocaleString();
@@ -76,7 +92,7 @@ function calc(){
  const s={city:city.value,type:type.value,beds:+beds.value,baths:+baths.value,sqft:+sqft.value,county:countyOf(city.value)};
  const g=(+growth.value||0)/100;
  let scored=comps.map(c=>{
-   let w=c.actual?1:.58, score=0;
+   let w=c.actual?1:(c.public?.42:.58), score=0;
    if(c.city===s.city){score+=42;w*=1.55}else if(c.county===s.county){score+=16;w*=1.18}
    if(c.type===s.type){score+=26;w*=1.35}else if(c.type==="unknown"){score+=7}else{w*=.72}
    if(c.beds!=null){let d=Math.abs(c.beds-s.beds);score+=Math.max(0,14-d*5);w*=1/(1+d*.32)}
@@ -105,7 +121,7 @@ function calc(){
  estimate.textContent=money(est)+"/mo";range.textContent=money(est-spread)+" – "+money(est+spread)+" suggested range";confidence.textContent=conf+" confidence";
  compCount.textContent=top.length;pps.textContent=s.sqft?("$"+(est/s.sqft).toFixed(2)):"—";timeAdj.textContent=(g*100).toFixed(1)+"% / yr";
  explain.textContent="Estimate starts with weighted, time-normalized comparable rents. This property then receives "+money(amen+sizeAdj)+" in net subject adjustments. "+(same?same+" of the top comps are in "+s.city+".":"No top comp is in the same city, so the range is intentionally wider.");
- compRows.innerHTML=top.slice(0,6).map(c=>'<div class="comp"><span><b>'+c.name+'</b><br><span class="pill">'+c.city+' · '+(c.actual?'leased':'asking')+'</span></span><span>$'+c.rent.toLocaleString()+'</span><span>$'+Math.round(c.a).toLocaleString()+'</span><span>'+Math.round(c.score)+'%</span></div>').join("");
+ compRows.innerHTML=top.slice(0,6).map(c=>'<div class="comp"><span><b>'+c.name+'</b><br><span class="pill">'+c.city+' · '+(c.actual?'MYPS leased':(c.public?'public asking':'MYPS asking'))+'</span></span><span>$'+c.rent.toLocaleString()+'</span><span>$'+Math.round(c.a).toLocaleString()+'</span><span>'+Math.round(c.score)+'%</span></div>').join("");
 }
 calculate.addEventListener("click",calc);growth.addEventListener("change",calc);calc();
 </script></body></html>
