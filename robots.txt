@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /calc.html
+Disallow: /calc
 
 Sitemap: https://mypropertysolutionsmd.com/sitemap.xml
