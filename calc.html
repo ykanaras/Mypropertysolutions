@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Internal Rental Calculator | MY Property Solutions</title>
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="googlebot" content="noindex,nofollow,noarchive,nosnippet">
+<link rel="icon" type="image/jpeg" href="/images/logo.jpg">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#1f2937;--muted:#6b7280;--blue:#0f5ea8;--blue2:#0b4a86;--gold:#b99752;--border:#e5e7eb;--good:#137a52}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}.wrap{width:min(1180px,94%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--border)}.head{min-height:88px;display:flex;align-items:center;gap:15px}.head img{height:68px}.head h1{font-size:1.25rem;margin:0}.head small{color:var(--muted)}
+main{padding:32px 0 60px}.intro{margin-bottom:22px}.intro h2{font-size:clamp(1.8rem,4vw,2.7rem);margin:0 0 8px}.intro p{color:var(--muted);margin:0;max-width:850px}
+.grid{display:grid;grid-template-columns:1fr .9fr;gap:24px}.card{background:#fff;border:1px solid var(--border);border-radius:20px;box-shadow:0 5px 20px rgba(15,23,42,.06);padding:24px}
+h3{margin:0 0 18px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field label{display:block;font-size:.84rem;font-weight:700;margin:0 0 6px}.field input,.field select{width:100%;padding:12px;border:1px solid #d1d5db;border-radius:10px;background:#fff;font-size:1rem}.checks{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:17px}.checks label{display:flex;gap:8px;align-items:center;font-size:.9rem}.wide{grid-column:1/-1}.btn{width:100%;margin-top:20px;border:0;border-radius:12px;background:var(--blue);color:#fff;font-weight:800;padding:14px;font-size:1rem;cursor:pointer}.btn:hover{background:var(--blue2)}
+.result{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-radius:18px;padding:24px;margin-bottom:18px}.result .eyebrow{text-transform:uppercase;letter-spacing:.09em;font-size:.72rem;font-weight:800;opacity:.82}.price{font-size:clamp(2.4rem,6vw,4rem);font-weight:900;line-height:1;margin:8px 0}.range{font-size:1.15rem;font-weight:700}.confidence{display:inline-block;margin-top:13px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.16);font-size:.82rem;font-weight:800}
+.metricgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.metric{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:12px}.metric b{display:block;font-size:1.1rem}.metric span{font-size:.75rem;color:var(--muted)}
+.note{font-size:.82rem;color:var(--muted);line-height:1.45}.comps{margin-top:24px}.comp{display:grid;grid-template-columns:1.4fr .7fr .7fr .7fr;gap:10px;padding:12px 4px;border-bottom:1px solid var(--border);align-items:center;font-size:.87rem}.comp.headrow{font-weight:800;color:#4b5563;font-size:.76rem}.pill{display:inline-block;padding:4px 7px;border-radius:999px;background:#eef6ff;color:var(--blue);font-size:.7rem;font-weight:800}
+details{margin-top:20px}summary{cursor:pointer;font-weight:800}.settings{margin-top:12px;padding:14px;background:#f8fafc;border-radius:12px}.settings label{font-size:.8rem;font-weight:700}.settings input{width:90px;padding:8px;margin-left:8px}
+footer{text-align:center;color:var(--muted);font-size:.78rem;padding:20px}
+@media(max-width:850px){.grid{grid-template-columns:1fr}.fields{grid-template-columns:1fr 1fr}}@media(max-width:520px){.fields,.checks{grid-template-columns:1fr}.metricgrid{grid-template-columns:1fr}.comp{grid-template-columns:1.25fr .8fr .8fr}.comp>*:nth-child(4){display:none}.head img{height:55px}}
+</style></head>
+<body><header><div class="wrap head"><img src="/images/logo.jpg" alt="MY Property Solutions"><div><h1>Rental Pricing Calculator</h1><small>Internal MY Property Solutions tool</small></div></div></header>
+<main class="wrap"><section class="intro"><h2>What could this property rent for today?</h2><p>Uses MY Property Solutions rental history, time-adjusted to today's dollars, then weights comparable rentals by location, property type, bedrooms, bathrooms and size. Amenity adjustments refine the final range.</p></section>
+<div class="grid"><section class="card"><h3>Property details</h3><div class="fields">
+<div class="field"><label>City</label><select id="city"><option>Elkton</option><option>North East</option><option>Havre de Grace</option><option>Belcamp</option><option>Abingdon</option><option>Bel Air</option><option>Conowingo</option><option>Perryville</option><option>Joppa</option><option>Charlestown</option><option>Other Cecil County</option><option>Other Harford County</option></select></div>
+<div class="field"><label>Property type</label><select id="type"><option value="sfh">Single-family</option><option value="townhome">Townhome</option><option value="apartment">Apartment</option><option value="basement">Basement apartment</option></select></div>
+<div class="field"><label>Bedrooms</label><input id="beds" type="number" min="0" step="1" value="3"></div>
+<div class="field"><label>Bathrooms</label><input id="baths" type="number" min="1" step=".5" value="2"></div>
+<div class="field"><label>Square feet</label><input id="sqft" type="number" min="300" step="10" value="1800"></div>
+<div class="field"><label>Condition</label><select id="condition"><option value="0">Average / good</option><option value="75">Updated</option><option value="140">New / extensively renovated</option><option value="-100">Dated</option></select></div>
+</div><div class="checks">
+<label><input type="checkbox" id="basement"> Finished basement</label><label><input type="checkbox" id="garage"> Garage</label>
+<label><input type="checkbox" id="fenced"> Fenced/private yard</label><label><input type="checkbox" id="pet"> Pet friendly</label>
+<label><input type="checkbox" id="furnished"> Furnished</label><label><input type="checkbox" id="pool"> Pool</label>
+<label><input type="checkbox" id="utilities"> Major utility included</label><label><input type="checkbox" id="newer"> Newer construction</label>
+</div><button class="btn" id="calculate">Calculate rent estimate</button>
+<details><summary>Model settings</summary><div class="settings"><label>Annual rent growth <input id="growth" type="number" min="0" max="15" step=".1" value="4.0"> %</label><p class="note">This controls the time adjustment. Example: a $2,500 2024 comp becomes about $2,704 in 2026 at 4% annual growth. Change this as your market data improves.</p></div></details>
+</section>
+<section class="card"><div class="result"><div class="eyebrow">Estimated market rent</div><div class="price" id="estimate">$—</div><div class="range" id="range">Enter the property details and calculate.</div><div class="confidence" id="confidence">Waiting for property</div></div>
+<div class="metricgrid"><div class="metric"><b id="compCount">—</b><span>weighted comps</span></div><div class="metric"><b id="pps">—</b><span>estimated $ / sq ft</span></div><div class="metric"><b id="timeAdj">—</b><span>time adjustment</span></div></div>
+<p class="note" id="explain">The model gives the greatest weight to same-city and same-property-type rentals. Older records are increased using the annual rent-growth setting. Asking rents are included at lower weight than executed leases.</p>
+<div class="comps"><h3>Best matching comps</h3><div class="comp headrow"><span>Comparable</span><span>Rent</span><span>Today</span><span>Match</span></div><div id="compRows"></div></div>
+</section></div></main><footer>Internal pricing aid • Not linked in public navigation • MY Property Solutions</footer>
+<script>
+const comps=[
+{name:"3 North Ct",city:"North East",county:"Cecil",type:"townhome",rent:1900,year:2026,beds:3,baths:1.5,sqft:1296,actual:true},
+{name:"233 Correri St",city:"Havre de Grace",county:"Harford",type:"townhome",rent:3275,year:2026,beds:4,baths:2.5,sqft:2313,actual:true},
+{name:"98 Windmill",city:"Conowingo",county:"Cecil",type:"sfh",rent:2975,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"280 Mike",city:"Elkton",county:"Cecil",type:"unknown",rent:2200,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"222 Mike",city:"Elkton",county:"Cecil",type:"unknown",rent:2250,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"7 White Birch",city:"North East",county:"Cecil",type:"unknown",rent:2700,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"55 White Birch",city:"North East",county:"Cecil",type:"unknown",rent:2525,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"703 Jonathan",city:"Joppa",county:"Harford",type:"unknown",rent:2900,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"433 Ellis",city:"Bel Air",county:"Harford",type:"unknown",rent:2625,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"251 Correri",city:"Havre de Grace",county:"Harford",type:"unknown",rent:3200,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"148 Correri",city:"Havre de Grace",county:"Harford",type:"unknown",rent:2800,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"3805 Sewell",city:"Abingdon",county:"Harford",type:"sfh",rent:2800,year:2026,beds:3,baths:2,sqft:1848,actual:true},
+{name:"144 Sachem",city:"Havre de Grace",county:"Harford",type:"unknown",rent:2900,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"136 Bayscape",city:"Perryville",county:"Cecil",type:"unknown",rent:2925,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"35 Catalpa",city:"North East",county:"Cecil",type:"unknown",rent:2700,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"241 Sycamore",city:"Elkton",county:"Cecil",type:"sfh",rent:2275,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"9 Kent",city:"Elkton",county:"Cecil",type:"unknown",rent:2240,year:2026,beds:null,baths:null,sqft:null,actual:true},
+{name:"1416 Primrose",city:"Belcamp",county:"Harford",type:"townhome",rent:2200,year:2026,beds:3,baths:2,sqft:1821,actual:true},
+{name:"Belcamp brick townhome (2025)",city:"Belcamp",county:"Harford",type:"townhome",rent:2100,year:2025,beds:3,baths:2,sqft:null,actual:false},
+{name:"Lohr's Orchard (2025)",city:"unknown",county:"Harford",type:"sfh",rent:2900,year:2025,beds:3,baths:3.5,sqft:2700,actual:false},
+{name:"Elk Mills apartment",city:"Elkton",county:"Cecil",type:"apartment",rent:1600,year:2026,beds:2,baths:1,sqft:1000,actual:false},
+{name:"Walnut Hill",city:"Elkton",county:"Cecil",type:"townhome",rent:2200,year:2026,beds:3,baths:1.5,sqft:1620,actual:false},
+{name:"Patriots Glen",city:"Elkton",county:"Cecil",type:"sfh",rent:3250,year:2026,beds:5,baths:3.5,sqft:3200,actual:false},
+{name:"111 Market St",city:"Charlestown",county:"Cecil",type:"sfh",rent:3300,year:2026,beds:3,baths:2.5,sqft:2584,actual:false}
+];
+const countyOf=c=>["Havre de Grace","Belcamp","Abingdon","Bel Air","Joppa","Other Harford County"].includes(c)?"Harford":"Cecil";
+const money=n=>"$"+Math.round(n/25)*25 .toLocaleString();
+function adjusted(c,g){return c.rent*Math.pow(1+g,(2026-c.year));}
+function calc(){
+ const s={city:city.value,type:type.value,beds:+beds.value,baths:+baths.value,sqft:+sqft.value,county:countyOf(city.value)};
+ const g=(+growth.value||0)/100;
+ let scored=comps.map(c=>{
+   let w=c.actual?1:.58, score=0;
+   if(c.city===s.city){score+=42;w*=1.55}else if(c.county===s.county){score+=16;w*=1.18}
+   if(c.type===s.type){score+=26;w*=1.35}else if(c.type==="unknown"){score+=7}else{w*=.72}
+   if(c.beds!=null){let d=Math.abs(c.beds-s.beds);score+=Math.max(0,14-d*5);w*=1/(1+d*.32)}
+   if(c.baths!=null){let d=Math.abs(c.baths-s.baths);score+=Math.max(0,9-d*3);w*=1/(1+d*.2)}
+   if(c.sqft&&s.sqft){let d=Math.abs(c.sqft-s.sqft)/Math.max(s.sqft,1);score+=Math.max(0,18-d*30);w*=1/(1+d*1.6)}
+   const a=adjusted(c,g); return {...c,a,w,score};
+ }).sort((a,b)=>(b.score*b.w)-(a.score*a.w));
+ let top=scored.slice(0,8), num=0,den=0;
+ top.forEach(c=>{let ww=c.w*(.5+c.score/100);num+=c.a*ww;den+=ww});
+ let base=num/den;
+ // Subject feature refinements. Conservative to avoid double counting comp features.
+ let amen=0;
+ if(basement.checked)amen+=90;if(garage.checked)amen+=85;if(fenced.checked)amen+=45;if(pet.checked)amen+=20;
+ if(furnished.checked)amen+=175;if(pool.checked)amen+=125;if(utilities.checked)amen+=100;if(newer.checked)amen+=85;
+ amen+=+condition.value;
+ // Size adjustment only when best comps lack close size matches; capped.
+ let known=top.filter(c=>c.sqft), avgSq=known.length?known.reduce((a,c)=>a+c.sqft,0)/known.length:s.sqft;
+ let sizeAdj=Math.max(-180,Math.min(220,(s.sqft-avgSq)*.12));
+ let est=base+amen+sizeAdj;
+ est=Math.round(est/25)*25;
+ let dispersion=Math.sqrt(top.reduce((z,c)=>z+Math.pow(c.a-base,2),0)/top.length);
+ let spread=Math.max(125,Math.min(325,dispersion*.48 + (top.filter(c=>c.city===s.city).length<2?75:0)));
+ spread=Math.round(spread/25)*25;
+ let same=top.filter(c=>c.city===s.city).length, knownAttrs=top.filter(c=>c.beds!=null&&c.sqft).length;
+ let conf=(same>=2&&knownAttrs>=2)?"Higher":(same>=1?"Moderate":"Lower");
+ estimate.textContent=money(est)+"/mo";range.textContent=money(est-spread)+" – "+money(est+spread)+" suggested range";confidence.textContent=conf+" confidence";
+ compCount.textContent=top.length;pps.textContent=s.sqft?("$"+(est/s.sqft).toFixed(2)):"—";timeAdj.textContent=(g*100).toFixed(1)+"% / yr";
+ explain.textContent="Estimate starts with weighted, time-normalized comparable rents. This property then receives "+money(amen+sizeAdj)+" in net subject adjustments. "+(same?same+" of the top comps are in "+s.city+".":"No top comp is in the same city, so the range is intentionally wider.");
+ compRows.innerHTML=top.slice(0,6).map(c=>'<div class="comp"><span><b>'+c.name+'</b><br><span class="pill">'+c.city+' · '+(c.actual?'leased':'asking')+'</span></span><span>$'+c.rent.toLocaleString()+'</span><span>$'+Math.round(c.a).toLocaleString()+'</span><span>'+Math.round(c.score)+'%</span></div>').join("");
+}
+calculate.addEventListener("click",calc);growth.addEventListener("change",calc);calc();
+</script></body></html>
