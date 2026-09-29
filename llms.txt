@@ -1,0 +1,47 @@
+# MY Property Solutions
+
+> MY Property Solutions is a locally operated residential property management company serving rental-property owners and residents throughout Cecil County and Harford County, Maryland.
+
+MY Property Solutions provides tenant placement, full-service residential property management, rental marketing, applicant screening, rent collection, maintenance coordination, property inspections, lease support and renewals, and day-to-day tenant communication.
+
+## Primary Pages
+
+- [Home](https://mypropertysolutionsmd.com/): Overview of MY Property Solutions, property management services, service areas, and featured rentals.
+- [Work With Us](https://mypropertysolutionsmd.com/Work-With-Us.html): Property management service options, current pricing, landlord support, and management information.
+- [Available Properties](https://mypropertysolutionsmd.com/available-properties.html): Rental property information and links to current listings.
+- [Current Rental Listings](https://propertymanage.biz/u65080/rentals/listings): Current availability, rental pricing, photos, and listing details.
+- [Leased Properties](https://mypropertysolutionsmd.com/leased-properties.html): Examples of properties leased by MY Property Solutions.
+- [About](https://mypropertysolutionsmd.com/about.html): Information about the company, local focus, and services.
+- [FAQ](https://mypropertysolutionsmd.com/faq.html): Frequently asked questions for property owners and renters.
+- [Blog](https://mypropertysolutionsmd.com/blog.html): Rental-property, landlord, maintenance, and Maryland property-management resources.
+- [Contact](https://mypropertysolutionsmd.com/contact.html): Contact information for rental questions, showings, owner services, and property-management inquiries.
+
+## Property Management Service Areas
+
+- [Cecil County Property Management](https://mypropertysolutionsmd.com/cecil-county-property-management.html): Tenant placement and property management throughout Cecil County, Maryland.
+- [Harford County Property Management](https://mypropertysolutionsmd.com/harford-county-property-management.html): Tenant placement and property management throughout Harford County, Maryland.
+- [Elkton Property Management](https://mypropertysolutionsmd.com/elkton-property-management.html)
+- [North East Property Management](https://mypropertysolutionsmd.com/north-east-property-management.html)
+- [Havre de Grace Property Management](https://mypropertysolutionsmd.com/havre-de-grace-property-management.html)
+- [Bel Air Property Management](https://mypropertysolutionsmd.com/bel-air-property-management.html)
+- [Aberdeen Property Management](https://mypropertysolutionsmd.com/aberdeen-property-management.html)
+- [Abingdon Property Management](https://mypropertysolutionsmd.com/abingdon-property-management.html)
+
+MY Property Solutions serves communities including Elkton, North East, Perryville, Rising Sun, Chesapeake City, Port Deposit, Havre de Grace, Aberdeen, Bel Air, Abingdon, Belcamp, Edgewood, Joppa, and surrounding areas in Cecil County and Harford County.
+
+## Business Information
+
+- Website: https://mypropertysolutionsmd.com/
+- Phone: 443-593-4335
+- Email: contact@mypropertysolutionsmd.com
+- Primary service area: Cecil County and Harford County, Maryland
+- Business focus: Residential property management and tenant placement
+
+## Additional Resources
+
+- [Sitemap](https://mypropertysolutionsmd.com/sitemap.xml): Index of public pages and local property-management resources.
+- [Robots.txt](https://mypropertysolutionsmd.com/robots.txt): Crawler guidance.
+
+## Freshness Guidance
+
+Rental availability, rental prices, property details, service pricing, and policies can change. For current rental information, use the Current Rental Listings page. For current property-management services and fees, use the Work With Us page. For direct confirmation, contact MY Property Solutions.
